@@ -6,15 +6,15 @@ import '../styles/global.css';
 
 <!-- Hero -->
 <section class="flex flex-col items-center pt-16 pb-8 px-6 sm:px-8">
-  <h1 class="text-center tracking-tight max-w-xl text-text-primary font-bold text-4xl sm:text-5xl leading-[1.15]">
+  <h1 class="text-center tracking-tight max-w-3xl text-text-primary font-bold text-4xl sm:text-5xl leading-[1.15]">
     The open source AI<br/>strategy agent
   </h1>
-  <p class="text-center mt-4 max-w-lg text-text-secondary text-base leading-relaxed">
+  <p class="text-center mt-4 max-w-2xl text-text-secondary text-base leading-relaxed">
     Runs structured strategic engagements, decomposes problems into MECE trees, and applies one Clausewitzian lens per stage. All inside Claude Code.
   </p>
 
   <!-- Install tabs -->
-  <div id="install" class="flex flex-col items-center mt-8 w-full max-w-lg">
+  <div id="install" class="flex flex-col items-center mt-8 w-full max-w-2xl">
     <div class="flex self-start -mb-px">
       <button id="tab-curl" class="py-2 px-4 bg-prussian-tint rounded-t-lg text-text-primary font-medium text-[13px]" onclick="document.getElementById('code-curl').classList.remove('hidden');document.getElementById('code-manual').classList.add('hidden');this.classList.add('bg-prussian-tint');document.getElementById('tab-manual').classList.remove('bg-prussian-tint')">curl</button>
       <button id="tab-manual" class="py-2 px-4 text-text-secondary text-[13px]" onclick="document.getElementById('code-manual').classList.remove('hidden');document.getElementById('code-curl').classList.add('hidden');this.classList.add('bg-prussian-tint');document.getElementById('tab-curl').classList.remove('bg-prussian-tint')">manual</button>
