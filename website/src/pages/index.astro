@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/main.astro';
+import '../styles/global.css';
+---
+<Layout title="clawsewitz — the open source AI strategy agent">
+
+<!-- Hero -->
+<section class="flex flex-col items-center pt-16 pb-8 px-6 sm:px-16">
+  <h1 class="text-center tracking-tight max-w-xl text-text-primary font-bold text-4xl sm:text-5xl leading-[1.15]">
+    The open source AI<br/>strategy agent
+  </h1>
+  <p class="text-center mt-4 max-w-lg text-text-secondary text-base leading-relaxed">
+    Runs structured strategic engagements, decomposes problems into MECE trees, and applies one Clausewitzian lens per stage. All inside Claude Code.
+  </p>
+
+  <!-- Install tabs -->
+  <div id="install" class="flex flex-col items-center mt-8 w-full max-w-lg">
+    <div class="flex self-start -mb-px">
+      <button id="tab-curl" class="py-2 px-4 bg-prussian-tint rounded-t-lg text-text-primary font-medium text-[13px]" onclick="document.getElementById('code-curl').classList.remove('hidden');document.getElementById('code-manual').classList.add('hidden');this.classList.add('bg-prussian-tint');document.getElementById('tab-manual').classList.remove('bg-prussian-tint')">curl</button>
+      <button id="tab-manual" class="py-2 px-4 text-text-secondary text-[13px]" onclick="document.getElementById('code-manual').classList.remove('hidden');document.getElementById('code-curl').classList.add('hidden');this.classList.add('bg-prussian-tint');document.getElementById('tab-curl').classList.remove('bg-prussian-tint')">manual</button>
+    </div>
+    <div id="code-curl" class="w-full flex items-center justify-between rounded-bl-lg rounded-r-lg py-4 px-5 bg-prussian-tint">
+      <code class="font-mono text-[13px] text-text-primary whitespace-nowrap overflow-x-auto">curl -fsSL https://raw.githubusercontent.com/robertsinke/clawsewitz/main/scripts/install.sh | bash</code>
+    </div>
+    <div id="code-manual" class="hidden w-full flex flex-col gap-1 rounded-bl-lg rounded-r-lg py-4 px-5 bg-prussian-tint">
+      <code class="font-mono text-[13px] text-text-primary">git clone --depth 1 https://github.com/robertsinke/clawsewitz \</code>
+      <code class="font-mono text-[13px] text-text-primary pl-4">~/.claude/plugins/local/clawsewitz</code>
+      <code class="font-mono text-[13px] text-text-primary mt-1">claude plugin marketplace add ~/.claude/plugins/local/clawsewitz</code>
+      <code class="font-mono text-[13px] text-text-primary">claude plugin install clawsewitz@clawsewitz-local</code>
+    </div>
+  </div>
+
+  <!-- CTAs -->
+  <div class="flex items-center mt-6 gap-4">
+    <a href="#install" class="rounded-lg py-2.5 px-6 bg-prussian text-prussian-tint font-semibold text-sm hover:bg-prussian-dark transition-colors">Get Started</a>
+    <a href="https://github.com/robertsinke/clawsewitz" class="flex items-center gap-1.5 text-text-secondary font-medium text-sm hover:text-text-primary transition-colors">
+      GitHub
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+  <div class="flex flex-col items-center mt-3 gap-1">
+    <span class="text-[13px] text-text-muted">Use curl for the full plugin, or install manually with git.</span>
+    <a href="#" class="text-[13px] text-prussian underline underline-offset-2">Need just the skills? Install the skills-only bundle.</a>
+  </div>
+
+  <!-- Terminal -->
+  <div class="w-full max-w-2xl mt-10 flex flex-col rounded-xl overflow-hidden bg-terminal-bg shadow-2xl">
+    <div class="flex items-center py-3 px-4 gap-2 bg-terminal-bar">
+      <div class="size-3 rounded-full bg-[#EE5555] shrink-0"></div>
+      <div class="size-3 rounded-full bg-[#E5A825] shrink-0"></div>
+      <div class="size-3 rounded-full bg-[#3DBA4E] shrink-0"></div>
+      <span class="text-xs text-text-secondary mx-auto">clawsewitz</span>
+    </div>
+    <div class="flex flex-col py-5 px-6 items-center">
+      <div class="font-pixel text-prussian-accent text-[80px] sm:text-[120px] leading-none tracking-wide select-none">
+        clawsewitz
+      </div>
+      <div class="flex mt-4 rounded border border-prussian overflow-hidden text-[10px] sm:text-[11px] w-full">
+        <div class="flex flex-col gap-3 border-r border-prussian shrink-0 p-4 w-48 sm:w-60">
+          <pre class="font-mono text-text-muted leading-relaxed whitespace-pre">model     anthropic/claude-opus-4-6
+directory ~/.claude/clawsewitz
+session   a7f3c1d2-8e4b...
+
+system    8 cores · 16GB
+
+10 skills · 4 agents</pre>
+          <div class="flex flex-col gap-0.5">
+            <span class="font-mono font-bold text-prussian-accent">Agents</span>
+            <span class="font-mono text-text-muted">research-pod, critic, red-team, premortem</span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1 p-4 flex-1 overflow-x-auto">
+          <span class="font-mono font-bold text-prussian-accent">Strategy Loop</span>
+          <pre class="font-mono text-text-muted leading-relaxed whitespace-pre">/clawsewitz   start or continue a strategic engagement
+/cw-case      manage case workspaces — list, resume, archive
+/cw-frameworks browse the 70-framework catalog
+
+cw-define     frame problem with SCQ, HTDQ, Outcome
+cw-split      MECE decomposition tree
+cw-analyse    run analyses on each leg
+cw-insight    mount so-whats on page archetypes
+cw-story      structured narrative
+cw-decide     recommendation with red-team review
+cw-act        implementation plan with premortem</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What you type → what happens -->
+<section class="flex flex-col items-center py-16 px-6 sm:px-16">
+  <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">What you type → what happens</h2>
+  <p class="text-center mt-2 text-[15px] text-text-secondary">Start an engagement or run a workflow. Every deliverable is MECE-checked.</p>
+  <div class="w-full max-w-2xl mt-8 flex flex-col rounded-xl py-6 px-7 gap-4 bg-surface-card">
+    <div class="flex flex-col gap-0.5">
+      <code class="font-mono text-[13px] font-semibold text-prussian">/clawsewitz "Acme — subscriber decline, 5%/mo, need turnaround"</code>
+      <span class="text-[13px] text-text-secondary">Full 7-step engagement with structured deliverables at every stage</span>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <code class="font-mono text-[13px] font-semibold text-prussian">/cw-frameworks "SPADE"</code>
+      <span class="text-[13px] text-text-secondary">Look up any of 70 frameworks with definition, example, and instructions</span>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <code class="font-mono text-[13px] font-semibold text-prussian">/cw-case resume acme-turnaround</code>
+      <span class="text-[13px] text-text-secondary">Pick up where you left off — case state persists across sessions</span>
+    </div>
+    <div class="flex flex-col gap-0.5">
+      <code class="font-mono text-[13px] font-semibold text-prussian">/cw-frameworks define</code>
+      <span class="text-[13px] text-text-secondary">Browse frameworks available for a specific stage</span>
+    </div>
+  </div>
+</section>
+
+<!-- Strategy Loop -->
+<section class="flex flex-col items-center py-16 px-6 sm:px-16">
+  <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">Strategy Loop</h2>
+  <p class="text-center mt-2 text-[15px] text-text-secondary">Seven stages. One Clausewitzian lens per stage. Your call.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-8 w-full max-w-2xl">
+    {[
+      { cmd: '/define', desc: 'Frame the problem with SCQ, HTDQ, or Outcome.', quote: 'Strategy serves policy.' },
+      { cmd: '/split', desc: 'MECE decomposition via Driver Tree, Bucketing, or Hypothesis Tree.', quote: 'Schwerpunkt — the hub of all power upon which everything depends.' },
+      { cmd: '/analyse', desc: 'Run analyses with 70+ frameworks on each leg of the tree.', quote: 'Moral forces — the effects of physical and moral forces are like a chemical combination.' },
+      { cmd: '/insight', desc: 'Mount so-whats on page archetypes: Canvas, 2×2, Journey Map.', quote: 'Fog of war — the great uncertainty of all data in war.' },
+      { cmd: '/story', desc: 'Stitch insights into a structured narrative via Minto Pyramid, SCQA, or StoryBrand.', quote: 'Boldness — governed by superior intellect is the mark of a hero.' },
+      { cmd: '/decide', desc: 'Recommendation using SPADE, Bezos, or Evaluation Tree.', quote: 'Ends, Ways, Means — every recommendation states all three.' },
+      { cmd: '/act', desc: 'Implementation plan with friction register and reserves.', quote: 'No plan survives first contact with the enemy.' },
+    ].map((stage) => (
+      <div class="flex flex-col rounded-xl gap-2.5 justify-between bg-surface-card p-5">
+        <div>
+          <code class="font-mono text-[13px] font-semibold text-prussian">{stage.cmd}</code>
+          <p class="mt-1.5 text-[13px] leading-5 text-text-secondary">{stage.desc}</p>
+        </div>
+        <div class="pl-2.5 mt-auto border-l-2 border-prussian">
+          <p class="text-xs leading-[18px] text-text-muted font-serif italic">{stage.quote}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- Subagents -->
+<section class="flex flex-col items-center py-16 px-6 sm:px-16">
+  <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">Subagents</h2>
+  <p class="text-center mt-2 text-[15px] text-text-secondary">You ask a question. The right team assembles.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 w-full max-w-2xl">
+    {[
+      { name: 'Research Pod', desc: 'Parallel fact-gathering across web, papers, benchmarks, and competitive landscape' },
+      { name: 'Framework Critic', desc: 'Stress-tests framework choice, checks MECE integrity, names the weakest link' },
+      { name: 'Red Team', desc: 'Plays competitor or hostile stakeholder to find where the plan breaks' },
+      { name: 'Premortem', desc: 'Writes "it failed six months from now" narrative, extracts latent risks' },
+    ].map((agent) => (
+      <div class="flex flex-col items-center rounded-xl gap-1.5 bg-surface-card p-5 text-center">
+        <span class="font-semibold text-sm text-text-primary">{agent.name}</span>
+        <span class="text-[13px] leading-5 text-text-secondary">{agent.desc}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- Skills & Hooks -->
+<section class="flex flex-col items-center py-16 px-6 sm:px-16">
+  <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">Skills & Hooks</h2>
+  <p class="text-center mt-2 text-[15px] text-text-secondary">How clawsewitz enforces discipline and stays on track.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 w-full max-w-2xl">
+    {[
+      { name: 'MECE Check', desc: 'Auto-validates decompositions and pyramids for mutual exclusivity and collective exhaustiveness' },
+      { name: 'Chain Gate', desc: 'Blocks writing stage N until stage N-1 exists. No skipping steps.' },
+      { name: '70 Frameworks', desc: 'SCQ, Minto, SPADE, Bezos, GTM Stack, and 65 more — each with worked examples' },
+      { name: 'Auto-commit', desc: 'Every case file write is committed to git automatically. Full history, zero effort.' },
+    ].map((skill) => (
+      <div class="flex flex-col items-center rounded-xl gap-1.5 bg-surface-card p-5 text-center">
+        <span class="font-semibold text-sm text-text-primary">{skill.name}</span>
+        <span class="text-[13px] leading-5 text-text-secondary">{skill.desc}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+</Layout>

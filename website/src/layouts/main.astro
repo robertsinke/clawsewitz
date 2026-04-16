@@ -1,0 +1,45 @@
+---
+const { title = 'clawsewitz' } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The open source AI strategy agent. 7-step Strategy Loop, 70 frameworks, MECE enforcement, Clausewitzian structural lenses." />
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+</head>
+<body class="min-h-screen bg-surface font-sans text-text-primary antialiased">
+  <!-- Nav -->
+  <nav class="sticky top-0 z-50 flex items-center justify-between px-6 sm:px-16 h-14 bg-surface/80 backdrop-blur-md border-b border-prussian/10">
+    <a href={import.meta.env.BASE_URL} class="font-pixel text-2xl text-prussian tracking-wide">clawsewitz</a>
+    <div class="flex items-center gap-6">
+      <a href={`${import.meta.env.BASE_URL}#install`} class="text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+      <a href="https://github.com/robertsinke/clawsewitz" class="text-sm text-text-secondary hover:text-text-primary transition-colors">GitHub</a>
+    </div>
+  </nav>
+
+  <slot />
+
+  <!-- Footer CTA -->
+  <section class="flex flex-col items-center py-12 px-6 sm:px-16 gap-5">
+    <p class="text-center max-w-lg text-[15px] leading-6 text-text-secondary">
+      Built on Claude Code. Capabilities ship as plugin skills and every deliverable follows the Strategy Loop.
+    </p>
+    <div class="flex items-center gap-4">
+      <a href={`${import.meta.env.BASE_URL}#install`} class="rounded-lg py-2.5 px-6 bg-prussian text-prussian-tint font-semibold text-sm hover:bg-prussian-dark transition-colors">Get Started</a>
+      <a href="https://github.com/robertsinke/clawsewitz" class="text-text-secondary font-medium underline underline-offset-2 text-sm hover:text-text-primary transition-colors">View on GitHub</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="flex items-center justify-between px-6 sm:px-16 h-14 border-t border-prussian/10">
+    <span class="text-[13px] text-text-muted">© 2026 Robert Sinke</span>
+    <div class="flex gap-5">
+      <a href={`${import.meta.env.BASE_URL}#install`} class="text-[13px] text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+      <a href="https://github.com/robertsinke/clawsewitz" class="text-[13px] text-text-secondary hover:text-text-primary transition-colors">GitHub</a>
+    </div>
+  </footer>
+</body>
+</html>
