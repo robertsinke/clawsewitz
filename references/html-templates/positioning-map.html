@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{TITLE}} — Positioning Map</title>
+<style>
+  :root { --ink:#111; --rule:#ccc; --muted:#666; --accent:#1a365d; --you:#c2410c; --comp:#334155; }
+  *{box-sizing:border-box} body{margin:0;color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafafa}
+  .page{max-width:900px;margin:32px auto;padding:24px;background:#fff;border:1px solid var(--rule)}
+  header{border-bottom:2px solid var(--accent);padding-bottom:12px;margin-bottom:20px}
+  h1{font:600 22px/1.2 Georgia,serif;margin:0;color:var(--accent)}
+  .subtitle{color:var(--muted);margin-top:4px;font-size:13px}
+  .wrap{position:relative;height:520px;border:1px solid var(--rule);background:#fff}
+  .axis-y,.axis-x{position:absolute;background:var(--ink)}
+  .axis-y{left:50%;top:0;bottom:0;width:1px}
+  .axis-x{top:50%;left:0;right:0;height:1px}
+  .lbl{position:absolute;font:600 11px sans-serif;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+  .lbl.y-high{top:6px;left:50%;transform:translateX(-50%)}
+  .lbl.y-low{bottom:6px;left:50%;transform:translateX(-50%)}
+  .lbl.x-low{left:6px;top:50%;transform:translateY(-50%)}
+  .lbl.x-high{right:6px;top:50%;transform:translateY(-50%)}
+  .pt{position:absolute;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 2px #fff;font:600 10px sans-serif;color:#fff;display:flex;align-items:center;justify-content:center}
+  .pt.you{background:var(--you);width:20px;height:20px}
+  .pt.comp{background:var(--comp)}
+  .pt .name{position:absolute;top:18px;left:50%;transform:translateX(-50%);color:var(--ink);background:#fff;padding:1px 4px;border-radius:2px;font:500 11px sans-serif;white-space:nowrap}
+  .legend{display:flex;gap:16px;margin-top:12px;font-size:12px;color:var(--muted)}
+  .legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+  footer{margin-top:16px;color:var(--muted);font-size:11px;text-align:right}
+  @media print{.page{margin:0;border:none} body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>{{TITLE}}</h1>
+    <div class="subtitle">Y: {{Y_AXIS}} · X: {{X_AXIS}}</div>
+  </header>
+  <div class="wrap">
+    <div class="axis-y"></div><div class="axis-x"></div>
+    <div class="lbl y-high">{{Y_HIGH}}</div>
+    <div class="lbl y-low">{{Y_LOW}}</div>
+    <div class="lbl x-low">{{X_LOW}}</div>
+    <div class="lbl x-high">{{X_HIGH}}</div>
+    <!-- Points: styles via inline left/top percentages from the data -->
+    <div class="pt you" style="left:{{YOU_X}}%;top:{{YOU_Y}}%">Y<span class="name">{{YOU_NAME}}</span></div>
+    <div class="pt comp" style="left:{{C1_X}}%;top:{{C1_Y}}%">C<span class="name">{{C1_NAME}}</span></div>
+    <div class="pt comp" style="left:{{C2_X}}%;top:{{C2_Y}}%">C<span class="name">{{C2_NAME}}</span></div>
+    <div class="pt comp" style="left:{{C3_X}}%;top:{{C3_Y}}%">C<span class="name">{{C3_NAME}}</span></div>
+    <div class="pt comp" style="left:{{C4_X}}%;top:{{C4_Y}}%">C<span class="name">{{C4_NAME}}</span></div>
+  </div>
+  <div class="legend">
+    <span><span class="dot" style="background:#c2410c"></span>You</span>
+    <span><span class="dot" style="background:#334155"></span>Competitors</span>
+  </div>
+  <footer>{{CASE_SLUG}} · {{DATE}} · Positioning Map</footer>
+</div>
+</body>
+</html>

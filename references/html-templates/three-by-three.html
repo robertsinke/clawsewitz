@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{TITLE}} — 3×3 Attractiveness / Ability</title>
+<style>
+  :root { --ink:#111; --rule:#ccc; --muted:#666; --accent:#1a365d; }
+  *{box-sizing:border-box} body{margin:0;color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafafa}
+  .page{max-width:1000px;margin:32px auto;padding:24px;background:#fff;border:1px solid var(--rule)}
+  header{border-bottom:2px solid var(--accent);padding-bottom:12px;margin-bottom:20px}
+  h1{font:600 22px/1.2 Georgia,serif;margin:0;color:var(--accent)}
+  .subtitle{color:var(--muted);margin-top:4px;font-size:13px}
+  .wrap{display:grid;grid-template-columns:24px 1fr;grid-template-rows:1fr 24px;gap:8px}
+  .y-axis{writing-mode:vertical-rl;transform:rotate(180deg);display:flex;flex-direction:column;justify-content:space-between;align-items:center;font:600 12px sans-serif;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;padding:8px 0}
+  table{border-collapse:collapse;width:100%;height:420px}
+  td{border:1px solid var(--rule);vertical-align:middle;text-align:center;font-size:12px;color:var(--muted);padding:8px;width:33.3%}
+  td.invest{background:#e3f1e5;color:#1b5e20;font-weight:600}
+  td.selective{background:#fff7d6;color:#8a6d00;font-weight:600}
+  td.harvest{background:#fde3e0;color:#8a2a1b;font-weight:600}
+  td .segment{display:inline-block;background:var(--accent);color:#fff;padding:3px 8px;border-radius:12px;margin:2px;font-size:11px;font-weight:500}
+  .x-axis{grid-column:2;display:grid;grid-template-columns:1fr 1fr 1fr;text-align:center;font:600 12px sans-serif;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+  footer{margin-top:16px;color:var(--muted);font-size:11px;text-align:right}
+  @media print{.page{margin:0;border:none} body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>{{TITLE}}</h1>
+    <div class="subtitle">Y: Ability to Win &nbsp;·&nbsp; X: Segment Attractiveness</div>
+  </header>
+  <div class="wrap">
+    <div class="y-axis"><span>Low</span><span>Med</span><span>High</span></div>
+    <table>
+      <tr>
+        <td class="{{C_HH_CLASS}}">{{C_HH}}</td>
+        <td class="{{C_HM_CLASS}}">{{C_HM}}</td>
+        <td class="{{C_HL_CLASS}}">{{C_HL}}</td>
+      </tr>
+      <tr>
+        <td class="{{C_MH_CLASS}}">{{C_MH}}</td>
+        <td class="{{C_MM_CLASS}}">{{C_MM}}</td>
+        <td class="{{C_ML_CLASS}}">{{C_ML}}</td>
+      </tr>
+      <tr>
+        <td class="{{C_LH_CLASS}}">{{C_LH}}</td>
+        <td class="{{C_LM_CLASS}}">{{C_LM}}</td>
+        <td class="{{C_LL_CLASS}}">{{C_LL}}</td>
+      </tr>
+    </table>
+    <div></div>
+    <div class="x-axis"><span>Low</span><span>Med</span><span>High</span></div>
+  </div>
+  <footer>{{CASE_SLUG}} · {{DATE}} · 3×3 Segment Assessment (inspired by GE-McKinsey)</footer>
+</div>
+</body>
+</html>

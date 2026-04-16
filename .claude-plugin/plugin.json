@@ -1,0 +1,18 @@
+{
+  "name": "clawsewitz",
+  "description": "Clawsewitz — a senior partner-grade strategy agent grounded in Clausewitz. A self-contained 7-step Strategy Loop (Define \u2192 Split \u2192 Analyse \u2192 Insight \u2192 Story \u2192 Decide \u2192 Act) with MECE rigor, analyst discipline, and one Clausewitzian lens per stage (Trinity, Schwerpunkt, moral forces, fog, boldness, Ends-Ways-Means, friction, reserves).",
+  "version": "0.3.0",
+  "author": {
+    "name": "Robert Sinke"
+  },
+  "license": "MIT",
+  "keywords": [
+    "strategy",
+    "consulting",
+    "mckinsey",
+    "bcg",
+    "mece",
+    "minto",
+    "frameworks"
+  ]
+}

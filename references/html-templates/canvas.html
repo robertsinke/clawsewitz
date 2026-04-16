@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{TITLE}} — Business Model Canvas</title>
+<style>
+  :root { --ink:#111; --rule:#ddd; --muted:#666; --accent:#1a365d; }
+  *{box-sizing:border-box} html,body{margin:0;padding:0;color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafafa}
+  .page{max-width:1200px;margin:32px auto;padding:24px;background:#fff;border:1px solid var(--rule)}
+  header{border-bottom:2px solid var(--accent);padding-bottom:12px;margin-bottom:16px}
+  h1{font:600 22px/1.2 "Georgia",serif;margin:0;color:var(--accent)}
+  .subtitle{color:var(--muted);margin-top:4px;font-size:13px}
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr 1fr auto;gap:8px}
+  .cell{border:1px solid var(--rule);padding:12px;min-height:180px;background:#fff}
+  .cell h3{margin:0 0 8px;font:600 12px/1.2 sans-serif;text-transform:uppercase;letter-spacing:.04em;color:var(--accent)}
+  .cell ul{margin:0;padding-left:18px} .cell li{margin-bottom:4px}
+  .key-partners{grid-column:1;grid-row:1/3}
+  .key-activities{grid-column:2;grid-row:1}
+  .key-resources{grid-column:2;grid-row:2}
+  .value-prop{grid-column:3;grid-row:1/3}
+  .customer-rel{grid-column:4;grid-row:1}
+  .channels{grid-column:4;grid-row:2}
+  .customer-seg{grid-column:5;grid-row:1/3}
+  .cost{grid-column:1/4;grid-row:3}
+  .revenue{grid-column:4/6;grid-row:3}
+  footer{margin-top:16px;color:var(--muted);font-size:11px;text-align:right}
+  @media print{.page{margin:0;border:none} body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>{{TITLE}}</h1>
+    <div class="subtitle">{{SUBTITLE}}</div>
+  </header>
+  <div class="grid">
+    <div class="cell key-partners"><h3>Key Partners</h3>{{KEY_PARTNERS}}</div>
+    <div class="cell key-activities"><h3>Key Activities</h3>{{KEY_ACTIVITIES}}</div>
+    <div class="cell key-resources"><h3>Key Resources</h3>{{KEY_RESOURCES}}</div>
+    <div class="cell value-prop"><h3>Value Proposition</h3>{{VALUE_PROPOSITION}}</div>
+    <div class="cell customer-rel"><h3>Customer Relationships</h3>{{CUSTOMER_RELATIONSHIPS}}</div>
+    <div class="cell channels"><h3>Channels</h3>{{CHANNELS}}</div>
+    <div class="cell customer-seg"><h3>Customer Segments</h3>{{CUSTOMER_SEGMENTS}}</div>
+    <div class="cell cost"><h3>Cost Structure</h3>{{COST_STRUCTURE}}</div>
+    <div class="cell revenue"><h3>Revenue Streams</h3>{{REVENUE_STREAMS}}</div>
+  </div>
+  <footer>{{CASE_SLUG}} · {{DATE}} · Business Model Canvas (Osterwalder &amp; Pigneur)</footer>
+</div>
+</body>
+</html>

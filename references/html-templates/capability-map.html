@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{TITLE}} — Capability Map</title>
+<style>
+  :root { --ink:#111; --rule:#ddd; --muted:#666; --accent:#1a365d; --high:#16a34a; --med:#ca8a04; --low:#dc2626; }
+  *{box-sizing:border-box} body{margin:0;color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafafa}
+  .page{max-width:1200px;margin:32px auto;padding:24px;background:#fff;border:1px solid var(--rule)}
+  header{border-bottom:2px solid var(--accent);padding-bottom:12px;margin-bottom:20px}
+  h1{font:600 22px/1.2 Georgia,serif;margin:0;color:var(--accent)}
+  .subtitle{color:var(--muted);margin-top:4px;font-size:13px}
+  .legend{display:flex;gap:16px;margin-bottom:12px;font-size:12px;color:var(--muted)}
+  .legend .hv{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .group{border:1px solid var(--rule);padding:12px;min-height:220px;background:#fff}
+  .group h3{margin:0 0 8px;font:600 13px/1.2 sans-serif;color:var(--accent);text-align:center;text-transform:uppercase;letter-spacing:.04em}
+  .cap{display:flex;align-items:center;gap:6px;padding:4px 6px;margin-bottom:4px;background:#fafafa;border-radius:3px;font-size:12px}
+  .cap .harvey{display:inline-block;width:14px;height:14px;border:1.5px solid var(--ink);border-radius:50%;flex-shrink:0;position:relative;overflow:hidden}
+  .cap .h0::after{content:"";position:absolute;inset:0;background:transparent}
+  .cap .h25::after{content:"";position:absolute;top:0;right:50%;bottom:0;left:0;background:var(--ink)}
+  .cap .h50::after{content:"";position:absolute;top:0;right:50%;bottom:0;left:0;background:var(--ink)}
+  .cap .h75::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background:linear-gradient(90deg,var(--ink) 75%,transparent 75%)}
+  .cap .h100::after{content:"";position:absolute;inset:0;background:var(--ink)}
+  footer{margin-top:16px;color:var(--muted);font-size:11px;text-align:right}
+  @media print{.page{margin:0;border:none} body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>{{TITLE}}</h1>
+    <div class="subtitle">{{SUBTITLE}} — Harvey-ball maturity: empty 0% · quarter 25% · half 50% · three-quarter 75% · full 100%</div>
+  </header>
+  <div class="legend">
+    <span><span class="hv" style="background:var(--high)"></span>High</span>
+    <span><span class="hv" style="background:var(--med)"></span>Med</span>
+    <span><span class="hv" style="background:var(--low)"></span>Low</span>
+  </div>
+  <div class="grid">
+    <div class="group"><h3>{{G1_NAME}}</h3>{{G1_ITEMS}}</div>
+    <div class="group"><h3>{{G2_NAME}}</h3>{{G2_ITEMS}}</div>
+    <div class="group"><h3>{{G3_NAME}}</h3>{{G3_ITEMS}}</div>
+    <div class="group"><h3>{{G4_NAME}}</h3>{{G4_ITEMS}}</div>
+    <div class="group"><h3>{{G5_NAME}}</h3>{{G5_ITEMS}}</div>
+  </div>
+  <footer>{{CASE_SLUG}} · {{DATE}} · Capability Map — item pattern: &lt;div class="cap"&gt;&lt;span class="harvey h50"&gt;&lt;/span&gt;Capability name&lt;/div&gt;</footer>
+</div>
+</body>
+</html>

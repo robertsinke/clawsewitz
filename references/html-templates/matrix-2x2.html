@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{TITLE}} — 2×2 Matrix</title>
+<style>
+  :root { --ink:#111; --rule:#ccc; --muted:#666; --accent:#1a365d; --soft:#f4f6f9; }
+  *{box-sizing:border-box} body{margin:0;color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafafa}
+  .page{max-width:1000px;margin:32px auto;padding:24px;background:#fff;border:1px solid var(--rule)}
+  header{border-bottom:2px solid var(--accent);padding-bottom:12px;margin-bottom:20px}
+  h1{font:600 22px/1.2 Georgia,serif;margin:0;color:var(--accent)}
+  .subtitle{color:var(--muted);margin-top:4px;font-size:13px}
+  .axes{display:grid;grid-template-columns:24px 1fr;grid-template-rows:1fr 24px;gap:4px;height:520px}
+  .y-axis{writing-mode:vertical-rl;transform:rotate(180deg);display:flex;justify-content:space-between;align-items:center;font:600 12px sans-serif;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;padding:12px 0}
+  .quadrants{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;background:var(--rule)}
+  .q{background:#fff;padding:16px;position:relative}
+  .q.recommended{background:#fff8e6}
+  .q h3{margin:0 0 6px;font:700 14px/1.2 sans-serif;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+  .q p{margin:0;font-size:13px;color:#333}
+  .q .tag{position:absolute;top:8px;right:8px;font-size:10px;padding:2px 6px;background:var(--accent);color:#fff;border-radius:10px;text-transform:uppercase;letter-spacing:.04em}
+  .x-axis{grid-column:2;display:flex;justify-content:space-between;align-items:center;font:600 12px sans-serif;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;padding:0 12px}
+  .labels{display:grid;grid-template-columns:1fr 1fr;font-size:11px;color:var(--muted);margin-top:4px;padding-left:28px}
+  .labels div:last-child{text-align:right}
+  footer{margin-top:16px;color:var(--muted);font-size:11px;text-align:right}
+  @media print{.page{margin:0;border:none} body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <h1>{{TITLE}}</h1>
+    <div class="subtitle">{{SUBTITLE}} — Y: {{Y_AXIS}} &nbsp;·&nbsp; X: {{X_AXIS}}</div>
+  </header>
+  <div class="axes">
+    <div class="y-axis"><span>{{Y_LOW}}</span><span>{{Y_HIGH}}</span></div>
+    <div class="quadrants">
+      <div class="q {{Q_TL_CLASS}}"><span class="tag">{{Q_TL_TAG}}</span><h3>{{Q_TL_NAME}}</h3><p>{{Q_TL_DESC}}</p></div>
+      <div class="q {{Q_TR_CLASS}}"><span class="tag">{{Q_TR_TAG}}</span><h3>{{Q_TR_NAME}}</h3><p>{{Q_TR_DESC}}</p></div>
+      <div class="q {{Q_BL_CLASS}}"><span class="tag">{{Q_BL_TAG}}</span><h3>{{Q_BL_NAME}}</h3><p>{{Q_BL_DESC}}</p></div>
+      <div class="q {{Q_BR_CLASS}}"><span class="tag">{{Q_BR_TAG}}</span><h3>{{Q_BR_NAME}}</h3><p>{{Q_BR_DESC}}</p></div>
+    </div>
+    <div></div>
+    <div class="x-axis"><span>{{X_LOW}}</span><span>{{X_HIGH}}</span></div>
+  </div>
+  <footer>{{CASE_SLUG}} · {{DATE}} · 2×2 Matrix</footer>
+</div>
+</body>
+</html>

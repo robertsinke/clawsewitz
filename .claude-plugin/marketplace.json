@@ -1,0 +1,20 @@
+{
+  "name": "clawsewitz-local",
+  "metadata": {
+    "description": "Local marketplace hosting the clawsewitz plugin"
+  },
+  "owner": {
+    "name": "Robert Sinke"
+  },
+  "plugins": [
+    {
+      "name": "clawsewitz",
+      "description": "Clawsewitz — a senior partner-grade strategy agent grounded in Clausewitz. Self-contained 7-step Strategy Loop with MECE rigor and one Clausewitzian lens per stage (Trinity, Schwerpunkt, moral forces, fog, boldness, Ends-Ways-Means, friction, reserves).",
+      "version": "0.3.0",
+      "source": "./",
+      "author": {
+        "name": "Robert Sinke"
+      }
+    }
+  ]
+}
