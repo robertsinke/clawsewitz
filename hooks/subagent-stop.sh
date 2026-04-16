@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SubagentStop hook — amplify cw-framework-critic verdicts that flag problems.
+# SubagentStop hook — amplify analyst verdicts that flag problems.
 # Scans the subagent's final message for failure keywords and raises a banner.
 
 set -euo pipefail
@@ -30,7 +30,7 @@ msg="${parsed#*$'\t'}"
 
 # Only care about the framework critic.
 case "$name" in
-  cw-framework-critic|*framework-critic*) : ;;
+  analyst|*analyst*) : ;;
   *) exit 0 ;;
 esac
 
@@ -44,6 +44,6 @@ shopt -u nocasematch
 
 [ "$hit" -eq 0 ] && exit 0
 
-banner="⚠️  cw-framework-critic flagged this stage. Do NOT proceed to the next stage until the flagged issue is addressed. Re-read the critic's 'Weakest link' and 'Would I ship this?' sections, redraw, and re-invoke the critic before handoff."
+banner="⚠️  analyst flagged this stage. Do NOT proceed to the next stage until the flagged issue is addressed. Re-read the critic's 'Weakest link' and 'Would I ship this?' sections, redraw, and re-invoke the analyst before handoff."
 mc_emit_context "SubagentStop" "$banner"
 exit 0

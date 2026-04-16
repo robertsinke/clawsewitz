@@ -47,9 +47,9 @@ Before picking a method, name the **type** of decision this is. (ABCD: big-bet /
 
 {{recommend_reason}}
 
-## cw-red-team review
+## Challenger review (Red Team)
 
-*(Appended by the adversarial subagent invoked before handoff to cw-act.)*
+*(Appended by the challenger agent in Red Team mode before handoff to cw-act.)*
 
 {{red_team_review}}
 

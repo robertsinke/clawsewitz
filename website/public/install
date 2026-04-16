@@ -10,7 +10,7 @@ YELLOW='\033[33m'
 RED='\033[31m'
 RESET='\033[0m'
 
-VERSION="0.3.0"
+VERSION="0.4.0"
 REPO="https://github.com/robertsinke/clawsewitz"
 PLUGIN_DIR="${HOME}/.claude/plugins/local/clawsewitz"
 

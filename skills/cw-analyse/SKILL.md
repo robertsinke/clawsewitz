@@ -51,7 +51,7 @@ If you find yourself about to run a 4th analysis on the same leg, stop. Ask: *"W
 
 ## Parallel research
 
-If the analysis requires external market / competitor data, invoke the `cw-research-pod` subagent with a focused brief. Do not inline-search from the main chain — it bloats context.
+If the analysis requires external market / competitor data, invoke the `researcher` agent with a focused brief. Do not inline-search from the main chain — it bloats context.
 
 ## Clausewitzian Lens — Moral forces
 

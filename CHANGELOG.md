@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 — 2026-04-16
+- Strategic repositioning: capability-focused messaging, implicit Clausewitz foundation
+- Agent team redesign: Researcher → Analyst → Writer → Challenger pipeline
+- 6 new standalone workflows: /cw-decompose, /cw-brief, /cw-audit, /cw-evaluate, /cw-research, /cw-plan
+- Skills-only bundle installer
+- Session search skill for cross-engagement recall
+- Website redesign: workflows grid, output-focused Strategy Loop, new agents and tools sections
+
 ## 0.3.0 — 2026-04-16
 
 - Public release: GitHub repo, install script, README

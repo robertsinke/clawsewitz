@@ -49,8 +49,8 @@ Classification governs how much rigor to apply. A 2-way-door, delegated decision
    - **Means** — the resources (money, people, time, authority) this will consume
    If any of the three is vague, the recommendation is not yet ready. Rewrite, or return to `cw-story` if the governing thought itself is the problem. Reference `../../references/clausewitz-concepts.md#ends-ways-means`.
 7. **Write the recommendation** — name the option, the reason, the risks and mitigants, and the **next decision required**. A recommendation without a next-action is a wish.
-8. **Invoke `cw-framework-critic` subagent** with the decide artefact + chosen framework. Goal: stress-test the *framework choice* before handoff to Act.
-9. **Invoke `cw-red-team` subagent** with the decide artefact + the story. Goal: adversarial stress-test of the *content* of the recommendation (how a competitor or saboteur would exploit it, where it breaks, what signal would tell the client they are losing). Append the review to `06-decide.md` under the `## cw-red-team review` heading.
+8. **Invoke `analyst` agent** with the decide artefact + chosen framework. Goal: stress-test the *framework choice* before handoff to Act.
+9. **Invoke `challenger` agent in Red Team mode** with the decide artefact + the story. Goal: adversarial stress-test of the *content* of the recommendation (how a competitor or saboteur would exploit it, where it breaks, what signal would tell the client they are losing). Append the review to `06-decide.md` under the `## Challenger review (Red Team)` heading.
 
 ## Discipline self-check
 

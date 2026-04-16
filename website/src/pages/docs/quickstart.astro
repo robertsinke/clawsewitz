@@ -14,7 +14,7 @@ import DocsLayout from '../../layouts/docs.astro';
 <p class="text-text-secondary mb-4">The agent creates a case workspace under <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">~/.claude/clawsewitz/cases/</code>, sets partner posture, and begins the 7-step Strategy Loop at <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">cw-intake</code>.</p>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="define">What happens next</h2>
-<p class="text-text-secondary mb-4">The agent walks through seven stages, producing a deliverable at each step. Hooks enforce chain order — you can't skip ahead. Each stage applies a Clausewitzian structural lens.</p>
+<p class="text-text-secondary mb-4">The agent walks through seven stages, producing a deliverable at each step. Hooks enforce chain order — you can't skip ahead.</p>
 
 <div class="flex flex-col gap-3 mt-4 mb-8">
   {[
@@ -48,7 +48,13 @@ import DocsLayout from '../../layouts/docs.astro';
       </tr>
     </thead>
     <tbody class="text-text-secondary">
-      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/clawsewitz &lt;brief&gt;</code></td><td class="py-2">Start or continue a strategic engagement</td></tr>
+      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/clawsewitz &lt;brief&gt;</code></td><td class="py-2">Full strategic engagement — brief to implementation plan</td></tr>
+      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-decompose &lt;problem&gt;</code></td><td class="py-2">Break a problem into a validated MECE tree</td></tr>
+      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-brief &lt;topic&gt;</code></td><td class="py-2">Write an executive brief or recommendation memo</td></tr>
+      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-audit &lt;path&gt;</code></td><td class="py-2">Red-team and premortem an existing plan</td></tr>
+      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-evaluate &lt;question&gt;</code></td><td class="py-2">Score options against criteria and recommend one</td></tr>
+      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-research &lt;query&gt;</code></td><td class="py-2">Gather competitive, market, or industry intelligence</td></tr>
+      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-plan &lt;recommendation&gt;</code></td><td class="py-2">Build an implementation roadmap with risk register</td></tr>
       <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-case list</code></td><td class="py-2">List, resume, or archive case workspaces</td></tr>
       <tr><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-frameworks browse</code></td><td class="py-2">Browse the 70-framework catalog</td></tr>
     </tbody>
@@ -65,13 +71,13 @@ import DocsLayout from '../../layouts/docs.astro';
 </div>
 <p class="text-text-secondary mb-4">Each framework comes with a definition, worked example, and step-by-step instructions. The framework selector in each stage skill picks the right tool for the engagement type.</p>
 
-<h2 class="text-xl font-bold mt-10 mb-3" id="subagents">Subagents</h2>
-<p class="text-text-secondary mb-4">Four specialized subagents are dispatched automatically at the right stages:</p>
+<h2 class="text-xl font-bold mt-10 mb-3" id="subagents">Agents</h2>
+<p class="text-text-secondary mb-4">Four specialized agents are dispatched automatically at the right stages:</p>
 <ul class="list-disc pl-5 text-text-secondary flex flex-col gap-2 mb-4">
-  <li><strong class="text-text-primary">Research Pod</strong> — parallel fact-gathering across web, papers, benchmarks</li>
-  <li><strong class="text-text-primary">Framework Critic</strong> — stress-tests framework choice, checks MECE integrity</li>
-  <li><strong class="text-text-primary">Red Team</strong> — plays competitor or hostile stakeholder to find where the plan breaks</li>
-  <li><strong class="text-text-primary">Premortem</strong> — writes "it failed six months from now" narrative, extracts latent risks</li>
+  <li><strong class="text-text-primary">Researcher</strong> — hunts for evidence across the web, benchmarks, and competitive landscape</li>
+  <li><strong class="text-text-primary">Analyst</strong> — decomposes problems, applies frameworks, validates MECE integrity</li>
+  <li><strong class="text-text-primary">Writer</strong> — structures findings into briefs, memos, and slide narratives</li>
+  <li><strong class="text-text-primary">Challenger</strong> — stress-tests plans, plays adversary, writes the failure narrative</li>
 </ul>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="hooks">Hooks</h2>

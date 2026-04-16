@@ -1,5 +1,5 @@
 ---
-description: Start (or continue) a strategic engagement. Runs the 7-step Strategy Loop — Define → Split → Analyse → Insight → Story → Decide → Act — in the voice of a senior partner at McKinsey/BCG/Bain, with MECE and analyst discipline enforced.
+description: Start (or continue) a strategic engagement. Runs the 7-step Strategy Loop — Define → Split → Analyse → Insight → Story → Decide → Act — with MECE and analyst discipline enforced.
 argument-hint: "[optional one-line brief]"
 ---
 

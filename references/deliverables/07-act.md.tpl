@@ -64,9 +64,9 @@
 - **Decisions not yet made (optionality preserved):** {{reserves_optionality}}
 - **Timeline slack / slip buffer:** {{reserves_timeline}}
 
-## cw-premortem — *"six months from now, this failed"*
+## Challenger review (Premortem) — *"six months from now, this failed"*
 
-*(Appended by the pre-mortem subagent invoked before case close-out.)*
+*(Appended by the challenger agent in Premortem mode before case close-out.)*
 
 {{premortem}}
 
