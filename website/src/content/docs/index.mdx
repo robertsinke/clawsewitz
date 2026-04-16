@@ -3,7 +3,6 @@ title: clawsewitz
 description: Senior partner-grade strategy agent for Claude Code, grounded in Clausewitz.
 template: splash
 hero:
-  title: clawsewitz
   tagline: Senior partner-grade strategy agent for Claude Code, grounded in Clausewitz.
   actions:
     - text: Get Started
@@ -16,41 +15,102 @@ hero:
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, Tabs, TabItem } from '@astrojs/starlight/components';
 
-## What it does
+<pre class="pixel-art" aria-label="clawsewitz">{`         ██                                                      ██   ██
+         ██                                                      ██  ████
+ ████    ██    ████   ██     ██   █████   ████   ██     ██  ██   ██   █████
+██       ██   ██  ██  ██     ██  ██      ██  ██  ██     ██  ██   ██     ██
+██       ██   ██████  ██  █  ██   ████   ██████  ██  █  ██  ██   ██    ██
+██       ██   ██  ██   ██ █ ██       ██  ██       ██ █ ██   ██   ██   ██
+ ████    ██   ██  ██    ██ ██   █████     ████     ██ ██    ██    ██ █████`}</pre>
 
-A self-contained **7-step Strategy Loop** with MECE rigor, 70 frameworks, and one Clausewitzian lens per stage.
-
-<CardGrid>
-  <Card title="Define" icon="pencil">
-    Frame the problem using SCQ, HTDQ, or Outcome. Clausewitz lens: *strategy serves policy*.
-  </Card>
-  <Card title="Split" icon="puzzle">
-    MECE decomposition via Driver Tree, Bucketing, or Hypothesis Tree. Lens: *Schwerpunkt*.
-  </Card>
-  <Card title="Analyse" icon="magnifier">
-    Run analyses with 70+ frameworks. Lens: *moral forces* — don't miss what spreadsheets can't see.
-  </Card>
-  <Card title="Insight" icon="star">
-    Mount so-whats on page archetypes. Lens: *fog acknowledgement* — name what you don't know.
-  </Card>
-  <Card title="Story" icon="document">
-    Partner-grade narrative via Minto Pyramid. Lens: *boldness* — hedge and you say nothing.
-  </Card>
-  <Card title="Decide" icon="approve-check">
-    Recommendation using SPADE, Bezos, Evaluation Tree. Lens: *Ends-Ways-Means*.
-  </Card>
-  <Card title="Act" icon="rocket">
-    Implementation plan. Lens: *friction + reserves* — plans at 100% break on first contact.
-  </Card>
-</CardGrid>
+---
 
 ## Install
 
+<Tabs>
+  <TabItem label="curl">
 ```bash
 curl -fsSL https://raw.githubusercontent.com/robertsinke/clawsewitz/main/scripts/install.sh | bash
 ```
+  </TabItem>
+  <TabItem label="Manual">
+```bash
+git clone --depth 1 https://github.com/robertsinke/clawsewitz \
+  ~/.claude/plugins/local/clawsewitz
+claude plugin marketplace add ~/.claude/plugins/local/clawsewitz
+claude plugin install clawsewitz@clawsewitz-local
+```
+  </TabItem>
+</Tabs>
+
+Requires: `git`, `node` (>=20), [Claude Code CLI](https://claude.ai/claude-code).
+
+---
+
+## The Strategy Loop
+
+A self-contained **7-step chain** with MECE rigor, 70 frameworks, and one Clausewitzian structural lens per stage. Every engagement follows the same disciplined path.
+
+<CardGrid>
+  <Card title="1. Define" icon="pencil">
+    Frame the problem using SCQ, HTDQ, or Outcome. Push back if the stated question doesn't serve the real goal.
+
+    **Clausewitz:** *Strategy serves policy.*
+  </Card>
+  <Card title="2. Split" icon="puzzle">
+    MECE decomposition via Driver Tree, Bucketing, or Hypothesis Tree. Auto-validated by `cw-mece-check`.
+
+    **Clausewitz:** *Schwerpunkt* — name the center of gravity.
+  </Card>
+  <Card title="3. Analyse" icon="magnifier">
+    Run analyses on each leg. 70+ frameworks: financial models, market sizing, competitive, 5 Whys, value chain.
+
+    **Clausewitz:** *Moral forces* — don't miss what spreadsheets can't see.
+  </Card>
+  <Card title="4. Insight" icon="star">
+    Mount so-whats on page archetypes: One-Pager, Canvas, 2x2 Matrix, Journey Map, Capability Map.
+
+    **Clausewitz:** *Fog acknowledgement* — name what you don't know.
+  </Card>
+  <Card title="5. Story" icon="document">
+    Partner-grade narrative via Minto Pyramid, SCQA, Story Spine, 5 Act, or StoryBrand.
+
+    **Clausewitz:** *Boldness* — if nobody could disagree, it's not a recommendation.
+  </Card>
+  <Card title="6. Decide" icon="approve-check">
+    Recommendation using Eisenhower, ABCD, Bezos, SPADE, or Evaluation Tree. Red-team adversarial review.
+
+    **Clausewitz:** *Ends-Ways-Means* — if any is vague, the recommendation isn't ready.
+  </Card>
+  <Card title="7. Act" icon="rocket">
+    Implementation plan: workstreams, milestones, first-action owner. Premortem failure narrative.
+
+    **Clausewitz:** *Friction register + Reserves* — plans at 100% break on first contact.
+  </Card>
+</CardGrid>
+
+---
+
+## What you get
+
+<CardGrid stagger>
+  <Card title="10 skills" icon="seti:config">
+    7 rigid chain stages + `cw-mece-check`, `cw-framework-library`, `cw-framework-critic`. Each skill has a hard gate, framework selector, deliverable template, and discipline self-check.
+  </Card>
+  <Card title="4 subagents" icon="group">
+    **research-pod** for parallel fact-gathering, **framework-critic** for MECE review, **red-team** for adversarial challenge, **premortem** for failure narratives.
+  </Card>
+  <Card title="8 hooks" icon="setting">
+    Chain-order enforcement, auto-commit, MECE reminders, analysis-paralysis detection, Friction/Reserves gate, session-start resume, context preservation.
+  </Card>
+  <Card title="70 frameworks" icon="open-book">
+    SCQ, HTDQ, Minto Pyramid, Driver Tree, SPADE, Bezos, GTM Stack, Zero-to-One, Capability Drop, and 60+ more. Each with definition, worked example, and instructions.
+  </Card>
+</CardGrid>
+
+---
 
 ## Quick start
 
@@ -58,3 +118,11 @@ curl -fsSL https://raw.githubusercontent.com/robertsinke/clawsewitz/main/scripts
 claude
 /clawsewitz Acme Design — subscriber decline, 5%/mo for 3 months, need turnaround
 ```
+
+The agent creates a case workspace under `~/.claude/clawsewitz/cases/`, runs the 7-step chain in partner voice, and produces deliverables at each stage. Hooks enforce chain order, auto-commit to git, and check MECE rigor automatically.
+
+| Command | What it does |
+|---------|-------------|
+| `/clawsewitz <brief>` | Start or continue a strategic engagement |
+| `/cw-case list` | List, resume, or archive case workspaces |
+| `/cw-frameworks browse` | Browse the 70-framework catalog |
