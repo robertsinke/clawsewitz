@@ -25,11 +25,16 @@ import '../styles/global.css';
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-text-secondary"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
       </button>
     </div>
-    <div id="code-manual" class="hidden w-full flex flex-col gap-1 rounded-bl-lg rounded-r-lg py-4 px-5 bg-prussian-tint">
-      <code class="font-mono text-[12px] text-text-primary">git clone --depth 1 https://github.com/robertsinke/clawsewitz \</code>
-      <code class="font-mono text-[12px] text-text-primary pl-4">~/.claude/plugins/local/clawsewitz</code>
-      <code class="font-mono text-[12px] text-text-primary mt-1">claude plugin marketplace add ~/.claude/plugins/local/clawsewitz</code>
-      <code class="font-mono text-[12px] text-text-primary">claude plugin install clawsewitz@clawsewitz-local</code>
+    <div id="code-manual" class="hidden w-full flex items-start justify-between gap-3 rounded-bl-lg rounded-r-lg py-4 px-5 bg-prussian-tint">
+      <div id="manual-text" class="flex flex-col gap-1">
+        <code class="font-mono text-[12px] text-text-primary">git clone --depth 1 https://github.com/robertsinke/clawsewitz \</code>
+        <code class="font-mono text-[12px] text-text-primary pl-4">~/.claude/plugins/local/clawsewitz</code>
+        <code class="font-mono text-[12px] text-text-primary mt-1">claude plugin marketplace add ~/.claude/plugins/local/clawsewitz</code>
+        <code class="font-mono text-[12px] text-text-primary">claude plugin install clawsewitz@clawsewitz-local</code>
+      </div>
+      <button onclick="navigator.clipboard.writeText(document.getElementById('manual-text').textContent.trim())" class="shrink-0 p-1.5 rounded hover:bg-prussian/10 transition-colors mt-0.5" title="Copy">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-text-secondary"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
     </div>
   </div>
 
