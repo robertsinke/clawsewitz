@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+const { title, current } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const nav = [
+  { section: 'Getting Started', items: [
+    { label: 'Installation', href: `${base}docs/installation` },
+    { label: 'Quick Start', href: `${base}docs/quickstart` },
+  ]},
+  { section: 'Strategy Loop', items: [
+    { label: 'Define', href: `${base}docs/quickstart#define` },
+    { label: 'Split', href: `${base}docs/quickstart#split` },
+    { label: 'Analyse', href: `${base}docs/quickstart#analyse` },
+    { label: 'Insight → Act', href: `${base}docs/quickstart#insight` },
+  ]},
+  { section: 'Reference', items: [
+    { label: 'Commands', href: `${base}docs/quickstart#commands` },
+    { label: 'Frameworks', href: `${base}docs/quickstart#frameworks` },
+    { label: 'Subagents', href: `${base}docs/quickstart#subagents` },
+    { label: 'Hooks', href: `${base}docs/quickstart#hooks` },
+  ]},
+];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} — clawsewitz</title>
+  <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+</head>
+<body class="min-h-screen bg-surface font-sans text-text-primary antialiased">
+  <!-- Nav -->
+  <nav class="sticky top-0 z-50 flex items-center justify-between px-6 sm:px-16 h-14 bg-surface/80 backdrop-blur-md border-b border-prussian/10">
+    <a href={base} class="font-pixel text-2xl text-prussian tracking-wide">clawsewitz</a>
+    <div class="flex items-center gap-6">
+      <a href={`${base}docs/installation`} class="text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+      <a href="https://github.com/robertsinke/clawsewitz" class="text-sm text-text-secondary hover:text-text-primary transition-colors">GitHub</a>
+    </div>
+  </nav>
+
+  <div class="flex max-w-5xl mx-auto">
+    <!-- Sidebar -->
+    <aside class="hidden md:flex flex-col w-48 shrink-0 py-8 pr-6 border-r border-prussian/10 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto">
+      {nav.map((group) => (
+        <div class="mb-6">
+          <h3 class="text-xs font-semibold uppercase tracking-wider text-prussian mb-2">{group.section}</h3>
+          <ul class="flex flex-col gap-1">
+            {group.items.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={[
+                    'block text-sm py-1 transition-colors',
+                    current === item.label ? 'text-text-primary font-medium' : 'text-text-secondary hover:text-text-primary',
+                  ]}
+                >{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </aside>
+
+    <!-- Content -->
+    <main class="flex-1 py-8 px-6 sm:px-10 max-w-3xl">
+      <slot />
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="flex items-center justify-between px-6 sm:px-16 h-14 border-t border-prussian/10">
+    <span class="text-[13px] text-text-muted">© 2026 Robert Sinke</span>
+    <div class="flex gap-5">
+      <a href={`${base}docs/installation`} class="text-[13px] text-text-secondary hover:text-text-primary transition-colors">Docs</a>
+      <a href="https://github.com/robertsinke/clawsewitz" class="text-[13px] text-text-secondary hover:text-text-primary transition-colors">GitHub</a>
+    </div>
+  </footer>
+</body>
+</html>

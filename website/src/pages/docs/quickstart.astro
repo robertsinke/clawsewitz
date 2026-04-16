@@ -1,0 +1,97 @@
+---
+import DocsLayout from '../../layouts/docs.astro';
+---
+<DocsLayout title="Quick Start" current="Quick Start">
+
+<h1 class="text-3xl font-bold tracking-tight mb-2">Quick Start</h1>
+<p class="text-text-secondary mb-8">Run your first strategic engagement in under a minute.</p>
+
+<h2 class="text-xl font-bold mt-10 mb-3">Start an engagement</h2>
+<p class="text-text-secondary mb-4">Open Claude Code and type:</p>
+<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
+  <code class="font-mono text-[13px] text-text-primary">/clawsewitz Acme Design — subscriber decline, 5%/mo for 3 months, need turnaround</code>
+</div>
+<p class="text-text-secondary mb-4">The agent creates a case workspace under <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">~/.claude/clawsewitz/cases/</code>, sets partner posture, and begins the 7-step Strategy Loop at <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">cw-intake</code>.</p>
+
+<h2 class="text-xl font-bold mt-10 mb-3" id="define">What happens next</h2>
+<p class="text-text-secondary mb-4">The agent walks through seven stages, producing a deliverable at each step. Hooks enforce chain order — you can't skip ahead. Each stage applies a Clausewitzian structural lens.</p>
+
+<div class="flex flex-col gap-3 mt-4 mb-8">
+  {[
+    { stage: '1. Define', file: '01-define.md', desc: 'Frame the problem using SCQ, HTDQ, or Outcome.' },
+    { stage: '2. Split', file: '02-split.md', desc: 'MECE decomposition. Auto-validated by cw-mece-check.' },
+    { stage: '3. Analyse', file: '03-analyse.md', desc: 'Run analyses on each leg of the tree using 70+ frameworks.' },
+    { stage: '4. Insight', file: '04-insight.md', desc: 'Mount so-whats on page archetypes (Canvas, 2×2, Journey Map).' },
+    { stage: '5. Story', file: '05-story.md', desc: 'Structured narrative via Minto Pyramid, SCQA, or StoryBrand.' },
+    { stage: '6. Decide', file: '06-decide.md', desc: 'Recommendation with red-team adversarial review.' },
+    { stage: '7. Act', file: '07-act.md', desc: 'Implementation plan with friction register, reserves, and premortem.' },
+  ].map((s) => (
+    <div class="flex gap-4 items-start rounded-lg bg-surface-card p-4">
+      <div class="shrink-0">
+        <span class="font-mono text-[13px] font-semibold text-prussian">{s.stage}</span>
+      </div>
+      <div>
+        <p class="text-sm text-text-primary">{s.desc}</p>
+        <p class="text-xs text-text-muted mt-1">Produces <code class="font-mono bg-prussian-tint px-1 py-0.5 rounded">{s.file}</code></p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<h2 class="text-xl font-bold mt-10 mb-3" id="commands">Commands</h2>
+<div class="overflow-x-auto mb-8">
+  <table class="w-full text-sm">
+    <thead>
+      <tr class="border-b border-prussian/10">
+        <th class="text-left py-2 pr-4 font-semibold text-text-primary">Command</th>
+        <th class="text-left py-2 font-semibold text-text-primary">What it does</th>
+      </tr>
+    </thead>
+    <tbody class="text-text-secondary">
+      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/clawsewitz &lt;brief&gt;</code></td><td class="py-2">Start or continue a strategic engagement</td></tr>
+      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-case list</code></td><td class="py-2">List, resume, or archive case workspaces</td></tr>
+      <tr><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/cw-frameworks browse</code></td><td class="py-2">Browse the 70-framework catalog</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="text-xl font-bold mt-10 mb-3" id="frameworks">Frameworks</h2>
+<p class="text-text-secondary mb-4">Look up any of 70 frameworks by name or by stage:</p>
+<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-2 overflow-x-auto">
+  <code class="font-mono text-[13px] text-text-primary">/cw-frameworks "SPADE"</code>
+</div>
+<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
+  <code class="font-mono text-[13px] text-text-primary">/cw-frameworks define</code>
+</div>
+<p class="text-text-secondary mb-4">Each framework comes with a definition, worked example, and step-by-step instructions. The framework selector in each stage skill picks the right tool for the engagement type.</p>
+
+<h2 class="text-xl font-bold mt-10 mb-3" id="subagents">Subagents</h2>
+<p class="text-text-secondary mb-4">Four specialized subagents are dispatched automatically at the right stages:</p>
+<ul class="list-disc pl-5 text-text-secondary flex flex-col gap-2 mb-4">
+  <li><strong class="text-text-primary">Research Pod</strong> — parallel fact-gathering across web, papers, benchmarks</li>
+  <li><strong class="text-text-primary">Framework Critic</strong> — stress-tests framework choice, checks MECE integrity</li>
+  <li><strong class="text-text-primary">Red Team</strong> — plays competitor or hostile stakeholder to find where the plan breaks</li>
+  <li><strong class="text-text-primary">Premortem</strong> — writes "it failed six months from now" narrative, extracts latent risks</li>
+</ul>
+
+<h2 class="text-xl font-bold mt-10 mb-3" id="hooks">Hooks</h2>
+<p class="text-text-secondary mb-4">Eight hooks run automatically to enforce discipline:</p>
+<ul class="list-disc pl-5 text-text-secondary flex flex-col gap-2 mb-4">
+  <li><strong class="text-text-primary">Chain gate</strong> — blocks writing stage N if stage N-1 doesn't exist</li>
+  <li><strong class="text-text-primary">MECE reminder</strong> — prompts to run cw-mece-check after Split and Story</li>
+  <li><strong class="text-text-primary">Auto-commit</strong> — commits every case file write to git</li>
+  <li><strong class="text-text-primary">Analysis paralysis</strong> — nudges toward Insight after repeated Analyse writes</li>
+  <li><strong class="text-text-primary">Act gate</strong> — checks Friction Register and Reserves headings in 07-act.md</li>
+  <li><strong class="text-text-primary">Session start</strong> — surfaces active case on Claude Code launch</li>
+  <li><strong class="text-text-primary">Critic amplifier</strong> — highlights framework-critic verdicts that flag problems</li>
+  <li><strong class="text-text-primary">Context saver</strong> — preserves case state before context compaction</li>
+</ul>
+
+<h2 class="text-xl font-bold mt-10 mb-3">Resume a case</h2>
+<p class="text-text-secondary mb-4">Case state persists across sessions. To pick up where you left off:</p>
+<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
+  <code class="font-mono text-[13px] text-text-primary">/cw-case resume acme-turnaround</code>
+</div>
+<p class="text-text-secondary">The session-start hook will also surface any active case when you open Claude Code.</p>
+
+</DocsLayout>
