@@ -33,17 +33,17 @@ const nav = [
 </head>
 <body class="min-h-screen bg-surface font-sans text-text-primary antialiased">
   <!-- Nav -->
-  <nav class="sticky top-0 z-50 flex items-center justify-between px-6 sm:px-16 h-14 bg-surface/80 backdrop-blur-md border-b border-prussian/10">
+  <nav class="sticky top-0 z-50 flex items-center justify-between px-8 sm:px-16 lg:px-64 h-14 bg-surface/80 backdrop-blur-md border-b border-prussian/10">
     <a href={base} class="font-pixel text-2xl text-prussian tracking-wide">clawsewitz</a>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center gap-8">
       <a href={`${base}docs/installation`} class="text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
       <a href="https://github.com/robertsinke/clawsewitz" class="text-sm text-text-secondary hover:text-text-primary transition-colors">GitHub</a>
     </div>
   </nav>
 
-  <div class="flex max-w-5xl mx-auto">
+  <div class="flex max-w-6xl mx-auto px-8 sm:px-16 lg:px-24">
     <!-- Sidebar -->
-    <aside class="hidden md:flex flex-col w-48 shrink-0 py-8 pr-6 border-r border-prussian/10 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto">
+    <aside class="hidden md:flex flex-col w-56 shrink-0 py-10 pr-8 border-r border-prussian/10 sticky top-14 h-[calc(100vh-3.5rem)] overflow-y-auto">
       {nav.map((group) => (
         <div class="mb-6">
           <h3 class="text-xs font-semibold uppercase tracking-wider text-prussian mb-2">{group.section}</h3>
@@ -65,13 +65,13 @@ const nav = [
     </aside>
 
     <!-- Content -->
-    <main class="flex-1 py-8 px-6 sm:px-10 max-w-3xl">
+    <main class="flex-1 py-10 px-8 sm:px-12 lg:px-16 max-w-3xl">
       <slot />
     </main>
   </div>
 
   <!-- Footer -->
-  <footer class="flex items-center justify-between px-6 sm:px-16 h-14 border-t border-prussian/10">
+  <footer class="flex items-center justify-between px-8 sm:px-16 lg:px-64 h-14 border-t border-prussian/10">
     <span class="text-[13px] text-text-muted">© 2026 Robert Sinke</span>
     <div class="flex gap-5">
       <a href={`${base}docs/installation`} class="text-[13px] text-text-secondary hover:text-text-primary transition-colors">Docs</a>

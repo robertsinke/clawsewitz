@@ -12,9 +12,9 @@ const { title = 'clawsewitz' } = Astro.props;
 </head>
 <body class="min-h-screen bg-surface font-sans text-text-primary antialiased">
   <!-- Nav -->
-  <nav class="sticky top-0 z-50 flex items-center justify-between px-6 sm:px-16 h-14 bg-surface/80 backdrop-blur-md border-b border-prussian/10">
+  <nav class="sticky top-0 z-50 flex items-center justify-between px-8 sm:px-16 lg:px-64 h-14 bg-surface/80 backdrop-blur-md border-b border-prussian/10">
     <a href={import.meta.env.BASE_URL} class="font-pixel text-2xl text-prussian tracking-wide">clawsewitz</a>
-    <div class="flex items-center gap-6">
+    <div class="flex items-center gap-8">
       <a href={`${import.meta.env.BASE_URL}/docs/installation`} class="text-sm text-text-secondary hover:text-text-primary transition-colors">Docs</a>
       <a href="https://github.com/robertsinke/clawsewitz" class="text-sm text-text-secondary hover:text-text-primary transition-colors">GitHub</a>
     </div>
@@ -23,7 +23,7 @@ const { title = 'clawsewitz' } = Astro.props;
   <slot />
 
   <!-- Footer CTA -->
-  <section class="flex flex-col items-center py-12 px-6 sm:px-16 gap-5">
+  <section class="flex flex-col items-center py-16 px-8 sm:px-16 gap-5">
     <p class="text-center max-w-lg text-[15px] leading-6 text-text-secondary">
       Built on Claude Code. Capabilities ship as plugin skills and every deliverable follows the Strategy Loop.
     </p>
@@ -34,7 +34,7 @@ const { title = 'clawsewitz' } = Astro.props;
   </section>
 
   <!-- Footer -->
-  <footer class="flex items-center justify-between px-6 sm:px-16 h-14 border-t border-prussian/10">
+  <footer class="flex items-center justify-between px-8 sm:px-16 lg:px-64 h-14 border-t border-prussian/10">
     <span class="text-[13px] text-text-muted">© 2026 Robert Sinke</span>
     <div class="flex gap-5">
       <a href={`${import.meta.env.BASE_URL}/docs/installation`} class="text-[13px] text-text-secondary hover:text-text-primary transition-colors">Docs</a>
