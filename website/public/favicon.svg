@@ -1,4 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <rect width="32" height="32" rx="6" fill="#1E3A5F"/>
-  <text x="16" y="22" font-family="monospace" font-size="16" font-weight="bold" fill="#E8EDF4" text-anchor="middle">cw</text>
+  <rect x="4" y="3.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="7" y="3.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="10" y="3.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="16" y="3.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="28" y="3.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="1" y="8.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="16" y="8.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="28" y="8.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="1" y="13.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="16" y="13.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="22" y="13.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="28" y="13.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="1" y="18.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="19" y="18.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="25" y="18.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="4" y="23.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="7" y="23.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="10" y="23.5" width="3" height="5" fill="#E8EDF4"/>
+  <rect x="22" y="23.5" width="3" height="5" fill="#E8EDF4"/>
 </svg>
