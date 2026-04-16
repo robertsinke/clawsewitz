@@ -17,13 +17,13 @@ PLUGIN_DIR="${HOME}/.claude/plugins/local/clawsewitz-skills"
 splash() {
   printf '\n'
   printf "${PRUSSIAN}"
-  printf '         ██                                                      ██   ██\n'
-  printf '         ██                                                      ██  ████\n'
-  printf ' ████    ██    ████   ██     ██   █████   ████   ██     ██  ██   ██   █████\n'
-  printf '██       ██   ██  ██  ██     ██  ██      ██  ██  ██     ██  ██   ██     ██\n'
-  printf '██       ██   ██████  ██  █  ██   ████   ██████  ██  █  ██  ██   ██    ██\n'
-  printf '██       ██   ██  ██   ██ █ ██       ██  ██       ██ █ ██   ██   ██   ██\n'
-  printf ' ████    ██   ██  ██    ██ ██   █████     ████     ██ ██    ██    ██ █████\n'
+  printf '         ███                                                           ███   ███\n'
+  printf '         ███                                                                 ███\n'
+  printf '  █████  ███   ███████   ███      ███  ███████    █████  ███      ███  ███  █████  ███████\n'
+  printf '███      ███  ███   ███  ███      ███  ███      ███      ███      ███  ███   ███      ███\n'
+  printf '███      ███  █████████  ███ ████ ███   █████   ███████  ███ ████ ███  ███   ███     ███\n'
+  printf '███      ███  ███   ███   ███ ██ ███       ███  ███       ███ ██ ███   ███   ███    ███\n'
+  printf '  █████  ███  ███   ███    ███  ███    ███████    █████    ███  ███    ███    ███  ███████\n'
   printf "${RESET}\n"
   printf "${DIM}  Skills-only bundle — 70 frameworks & strategy stage skills${RESET}\n"
   printf "${DIM}  v%s · MIT · github.com/robertsinke/clawsewitz${RESET}\n\n" "$VERSION"
