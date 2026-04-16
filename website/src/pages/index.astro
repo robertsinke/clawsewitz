@@ -19,8 +19,11 @@ import '../styles/global.css';
       <button id="tab-curl" class="py-2 px-4 bg-prussian-tint rounded-t-lg text-text-primary font-medium text-[13px]" onclick="document.getElementById('code-curl').classList.remove('hidden');document.getElementById('code-manual').classList.add('hidden');this.classList.add('bg-prussian-tint');document.getElementById('tab-manual').classList.remove('bg-prussian-tint')">curl</button>
       <button id="tab-manual" class="py-2 px-4 text-text-secondary text-[13px]" onclick="document.getElementById('code-manual').classList.remove('hidden');document.getElementById('code-curl').classList.add('hidden');this.classList.add('bg-prussian-tint');document.getElementById('tab-curl').classList.remove('bg-prussian-tint')">manual</button>
     </div>
-    <div id="code-curl" class="w-full flex items-center justify-between rounded-bl-lg rounded-r-lg py-4 px-5 bg-prussian-tint">
-      <code class="font-mono text-[12px] text-text-primary whitespace-nowrap overflow-x-auto">curl -fsSL https://raw.githubusercontent.com/robertsinke/clawsewitz/main/scripts/install.sh | bash</code>
+    <div id="code-curl" class="w-full flex items-center justify-between gap-3 rounded-bl-lg rounded-r-lg py-4 px-5 bg-prussian-tint">
+      <code id="curl-text" class="font-mono text-[12px] text-text-primary whitespace-nowrap overflow-x-auto">curl -fsSL https://robertsinke.github.io/clawsewitz/install | bash</code>
+      <button onclick="navigator.clipboard.writeText(document.getElementById('curl-text').textContent)" class="shrink-0 p-1.5 rounded hover:bg-prussian/10 transition-colors" title="Copy">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-text-secondary"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
     </div>
     <div id="code-manual" class="hidden w-full flex flex-col gap-1 rounded-bl-lg rounded-r-lg py-4 px-5 bg-prussian-tint">
       <code class="font-mono text-[12px] text-text-primary">git clone --depth 1 https://github.com/robertsinke/clawsewitz \</code>
@@ -44,7 +47,7 @@ import '../styles/global.css';
   </div>
 
   <!-- Terminal -->
-  <div class="w-full mt-10 flex flex-col rounded-xl overflow-hidden bg-terminal-bg shadow-2xl">
+  <div class="w-full mt-10 flex flex-col rounded-xl overflow-hidden bg-terminal-bg shadow-[0_20px_60px_-15px_rgba(13,21,32,0.5)]">
     <div class="flex items-center py-3 px-4 gap-2 bg-terminal-bar">
       <div class="size-3 rounded-full bg-[#EE5555] shrink-0"></div>
       <div class="size-3 rounded-full bg-[#E5A825] shrink-0"></div>

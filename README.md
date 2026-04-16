@@ -15,7 +15,7 @@ Senior partner-grade strategy agent for Claude Code, grounded in Clausewitz.
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/robertsinke/clawsewitz/main/scripts/install.sh | bash
+curl -fsSL https://robertsinke.github.io/clawsewitz/install | bash
 ```
 
 Requires: `git`, `node` (>=20), `claude` CLI.
