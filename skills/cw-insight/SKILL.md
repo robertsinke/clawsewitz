@@ -54,7 +54,7 @@ Bias: **fewer, sharper pages beat more, softer pages.** Aim for 3–5 insight pa
 
 For every insight page, write a one-line **"Fog — what we do not know that could change this"** entry. Not a caveat dump, not a CYA disclaimer — a disciplined naming of the 1–2 unknowns that would flip the takeaway if they resolved the other way. Reference `../../references/clausewitz-concepts.md#fog-of-war`.
 
-A page without a fog line is either overconfident or under-examined. Both are partner-grade failures.
+A page without a fog line is either overconfident or under-examined. Both are serious failures.
 
 ## Loop-back rule
 

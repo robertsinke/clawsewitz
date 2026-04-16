@@ -9,7 +9,7 @@ Standalone executive brief — takes raw inputs and returns a structured, answer
 
 ## Before anything else
 
-**Load the partner voice.** Read `${CLAUDE_PLUGIN_ROOT}/references/partner-voice.md`. Adopt it. The output is a partner-grade deliverable — answer first, quantified, no filler.
+**Load the partner voice.** Read `${CLAUDE_PLUGIN_ROOT}/references/partner-voice.md`. Adopt it. The output is a polished deliverable — answer first, quantified, no filler.
 
 ## Argument
 

@@ -30,7 +30,7 @@ A self-contained **Strategy Loop** with 9 workflows, 4 agents, 70 frameworks, an
 | 2. Split | `cw-split` | 02-split.md — MECE decomposition tree |
 | 3. Analyse | `cw-analyse` | 03-analyse.md — data + qualitative analysis |
 | 4. Insight | `cw-insight` | 04-insight.md — so-whats on page archetypes |
-| 5. Story | `cw-story` | 05-story.md — partner-grade narrative |
+| 5. Story | `cw-story` | 05-story.md — structured narrative |
 | 6. Decide | `cw-decide` | 06-decide.md — recommendation |
 | 7. Act | `cw-act` | 07-act.md — implementation plan |
 
@@ -68,7 +68,7 @@ The agent creates a case workspace, runs the 7-step chain in partner voice, prod
 
 ## What's under the hood
 
-- **11 skills** — 7 rigid chain stages + cw-mece-check, cw-framework-library, cw-framework-critic, and more
+- **11 skills** — 7 rigid chain stages + cw-mece-check, cw-framework-library, session-search
 - **4 agents** — Researcher (fact-gathering), Analyst (MECE review), Writer (narratives), Challenger (adversarial + premortem)
 - **9 workflows** — full engagement, decompose, brief, audit, evaluate, research, plan, case management, framework browsing
 - **6 hooks** — chain-order gate, auto-commit, MECE reminders, analysis-paralysis detection, and more

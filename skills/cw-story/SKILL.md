@@ -1,6 +1,6 @@
 ---
 name: cw-story
-description: Sixth step of the clawsewitz chain. Use after cw-insight has produced 04-insight.md to stitch the insights into a partner-grade narrative. Defaults to Minto Pyramid (answer-first). Alternatives: SCQA, Story Spine, 5 Act, StoryBrand. Writes 05-story.md and optional deck.pptx via the pptx skill if available.
+description: Sixth step of the clawsewitz chain. Use after cw-insight has produced 04-insight.md to stitch the insights into a structured narrative. Defaults to Minto Pyramid (answer-first). Alternatives: SCQA, Story Spine, 5 Act, StoryBrand. Writes 05-story.md and optional deck.pptx via the pptx skill if available.
 ---
 
 # cw-story

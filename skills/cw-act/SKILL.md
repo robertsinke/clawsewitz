@@ -69,7 +69,7 @@ Any missing item must be filled before the case is closed.
 This is the terminal stage. After writing `07-act.md` and updating `CASE.md`:
 
 > "Engagement complete. Final deliverables in `<case>/`:
-> - 05-story.md — partner-grade narrative
+> - 05-story.md — structured narrative
 > - 06-decide.md — recommendation
 > - 07-act.md — implementation plan
 > - deck.pptx / xlsx files (if available)
