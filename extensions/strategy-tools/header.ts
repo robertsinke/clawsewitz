@@ -48,6 +48,16 @@ async function countAgents(): Promise<number> {
 
 const CLAWSEWITZ_VERSION = process.env.CLAWSEWITZ_VERSION ?? "1.0.0";
 
+const CLAWSEWITZ_LOGO = [
+	"     ███                                                          ███   ███",
+	"     ███                                                                ███",
+	"█████ ███  ███████  ███     ███ ███████   █████ ███     ███ ███  █████ ███████",
+	"███   ███ ███  ███ ███     ███ ███     ███     ███     ███ ███  ███     ███",
+	"███   ███ █████████ ███ ████ ███  █████  ███████ ███ ████ ███ ███  ███    ███",
+	"███   ███ ███  ███  ███ ██ ███      ███ ███      ███ ██ ███  ███  ███   ███",
+	" █████ ███ ███  ███   ███ ███   ███████   █████   ███ ███   ███   ███ ███████",
+];
+
 export function installClawsewitzHeader(
   pi: ExtensionAPI,
   ctx: ExtensionContext,
@@ -96,10 +106,19 @@ export function installClawsewitzHeader(
         const cores = cpus().length;
         const ramTotal = `${Math.round(totalmem() / (1024 ** 3))}GB`;
 
-        // Title
+        // Logo
         push("");
-        push(padRight(theme.fg("accent", theme.bold("  clawsewitz")), cardW));
-        push("");
+        if (cardW >= 78) {
+          const maxLogoW = Math.max(...CLAWSEWITZ_LOGO.map((l) => l.length));
+          const logoOffset = " ".repeat(Math.max(0, Math.floor((cardW - maxLogoW) / 2)));
+          for (const logoLine of CLAWSEWITZ_LOGO) {
+            push(theme.fg("accent", theme.bold(`${logoOffset}${truncateVisible(logoLine, cardW)}`)));
+          }
+          push("");
+        } else {
+          push(padRight(theme.fg("accent", theme.bold("  clawsewitz")), cardW));
+          push("");
+        }
 
         // Version bar
         const versionTag = ` v${CLAWSEWITZ_VERSION} `;
