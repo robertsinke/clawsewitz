@@ -31,7 +31,7 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
   <code class="font-mono text-[13px] text-text-primary">curl -fsSL https://robertsinke.github.io/clawsewitz/install-plugin | bash</code>
 </div>
-<p class="text-text-secondary mb-4">This installs clawsewitz as a Claude Code plugin with slash commands (<code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">/clawsewitz</code>, <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">/cw-decompose</code>, etc.), hooks for chain enforcement, and subagent delegation. Same strategy content, different runtime.</p>
+<p class="text-text-secondary mb-4">This installs clawsewitz as a Claude Code plugin with slash commands (<code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">/clawsewitz</code>, <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">/cw-decompose</code>, etc.) and subagent delegation. Same strategy content, different runtime.</p>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="verify">Verifying the installation</h2>
 <p class="text-text-secondary mb-4">Check that everything is working:</p>
@@ -59,10 +59,10 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 </div>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="skills-only">Skills-only bundle</h2>
-<p class="text-text-secondary mb-4">If you only want the strategy skills and framework library without agents, workflows, or hooks:</p>
+<p class="text-text-secondary mb-4">If you only want the strategy skills and framework library without agents or workflows:</p>
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
   <code class="font-mono text-[13px] text-text-primary">curl -fsSL https://robertsinke.github.io/clawsewitz/install-skills | bash</code>
 </div>
-<p class="text-text-secondary mb-4">This installs only the <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">skills/</code> and <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">references/</code> directories. No agents, no slash commands, no hooks. Use when you want the 70 frameworks and stage logic inside your own orchestration.</p>
+<p class="text-text-secondary mb-4">This installs only the <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">skills/</code> and <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">references/</code> directories. No agents, no slash commands, no enforcement. Use when you want the 70 frameworks and stage logic inside your own orchestration.</p>
 
 </DocsLayout>

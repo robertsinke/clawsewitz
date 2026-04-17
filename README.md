@@ -93,7 +93,7 @@ A self-contained **Strategy Loop** with 9 workflows, 4 agents, 70 frameworks, an
 - **11 skills** — 7 rigid chain stages + cw-mece-check, cw-framework-library, session-search
 - **4 agents** — Researcher (fact-gathering), Analyst (MECE review), Writer (narratives), Challenger (adversarial + premortem)
 - **9 workflows** — full engagement, decompose, brief, audit, evaluate, research, plan, case management, framework browsing
-- **6 hooks** — chain-order gate, auto-commit, MECE reminders, analysis-paralysis detection, and more
+- **6 enforcement guardrails** — chain gate, auto-commit, MECE reminders, analysis-paralysis detection, analyst amplification, session resume
 - **70 frameworks** — from the Strategist Toolkit: SCQ, HTDQ, Minto Pyramid, Driver Tree, SPADE, Bezos, GTM Stack, Zero-to-One, and 60+ more
 
 ## Dual Distribution
@@ -103,7 +103,7 @@ clawsewitz ships as two distributions:
 - **Standalone Pi CLI** (primary) — install via npm or the standalone curl script. Runs `clawsewitz` as a top-level command in any terminal, powered by the Pi runtime.
 - **Claude Code plugin** (secondary) — install via the plugin curl script. Adds `/clawsewitz` and `/cw-*` commands inside Claude Code sessions.
 
-Both distributions share the same skills, agents, frameworks, and hooks. The CLI is the recommended entry point for new users; the plugin is available for teams already working inside Claude Code.
+Both distributions share the same skills, agents, and frameworks. The CLI is the recommended entry point for new users; the plugin is available for teams already working inside Claude Code.
 
 ## Version
 
