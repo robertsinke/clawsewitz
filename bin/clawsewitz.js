@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+
+const MIN_NODE_VERSION = "20.19.0";
+
+function parseNodeVersion(version) {
+  const [major = "0", minor = "0", patch = "0"] = version.replace(/^v/, "").split(".");
+  return {
+    major: Number.parseInt(major, 10) || 0,
+    minor: Number.parseInt(minor, 10) || 0,
+    patch: Number.parseInt(patch, 10) || 0,
+  };
+}
+
+function compareNodeVersions(left, right) {
+  if (left.major !== right.major) return left.major - right.major;
+  if (left.minor !== right.minor) return left.minor - right.minor;
+  return left.patch - right.patch;
+}
+
+if (compareNodeVersions(parseNodeVersion(process.versions.node), parseNodeVersion(MIN_NODE_VERSION)) < 0) {
+  const isWindows = process.platform === "win32";
+  console.error(`clawsewitz requires Node.js ${MIN_NODE_VERSION} or later (detected ${process.versions.node}).`);
+  console.error(isWindows
+    ? "Install a newer Node.js from https://nodejs.org, or use the standalone installer:"
+    : "Switch to Node 20 with `nvm install 20 && nvm use 20`, or use the standalone installer:");
+  console.error("curl -fsSL https://robertsinke.github.io/clawsewitz/install | bash");
+  process.exit(1);
+}
+
+const here = import.meta.dirname;
+
+await import(pathToFileURL(resolve(here, "..", "scripts", "patch-embedded-pi.mjs")).href);
+await import(pathToFileURL(resolve(here, "..", "dist", "index.js")).href);
