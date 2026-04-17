@@ -1,0 +1,60 @@
+{
+  "name": "clawsewitz",
+  "version": "1.0.0",
+  "description": "The open source AI strategy agent",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "bin": {
+    "clawsewitz": "bin/clawsewitz.js"
+  },
+  "files": [
+    "bin/",
+    "dist/",
+    "metadata/",
+    ".clawsewitz/agents/",
+    ".clawsewitz/settings.json",
+    ".clawsewitz/SYSTEM.md",
+    ".clawsewitz/themes/",
+    "extensions/",
+    "prompts/",
+    "scripts/",
+    "skills/",
+    "references/",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx src/index.ts",
+    "start": "tsx src/index.ts",
+    "start:dist": "node ./bin/clawsewitz.js",
+    "test": "node --import tsx --test --test-concurrency=1 tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "pi": {
+    "extensions": ["./extensions"],
+    "prompts": ["./prompts"],
+    "skills": ["./skills"]
+  },
+  "dependencies": {
+    "@mariozechner/pi-ai": "^0.64.0",
+    "@mariozechner/pi-coding-agent": "^0.64.0",
+    "@sinclair/typebox": "^0.34.48",
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertsinke/clawsewitz.git"
+  },
+  "homepage": "https://github.com/robertsinke/clawsewitz#readme",
+  "bugs": {
+    "url": "https://github.com/robertsinke/clawsewitz/issues"
+  }
+}

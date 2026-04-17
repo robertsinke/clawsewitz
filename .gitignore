@@ -1,4 +1,5 @@
 node_modules/
 dist/
+.clawsewitz/npm/
 .DS_Store
 *.log
