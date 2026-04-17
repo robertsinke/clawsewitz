@@ -9,6 +9,7 @@ import { registerCaseCommand } from "./strategy-tools/case-manager.js";
 import { registerAnalysisParalysis } from "./strategy-tools/analysis-paralysis.js";
 import { registerAnalystAmplification } from "./strategy-tools/analyst-amplification.js";
 import { registerSessionResume } from "./strategy-tools/session-resume.js";
+import { installClawsewitzHeader } from "./strategy-tools/header.js";
 
 export default function strategyTools(pi: ExtensionAPI): void {
   registerChainGate(pi);
@@ -20,4 +21,14 @@ export default function strategyTools(pi: ExtensionAPI): void {
   registerAnalysisParalysis(pi);
   registerAnalystAmplification(pi);
   registerSessionResume(pi);
+
+  const cache: { agentCountPromise?: Promise<number> } = {};
+
+  pi.on("session_start", async (_event, ctx) => {
+    await installClawsewitzHeader(pi, ctx, cache);
+  });
+
+  pi.on("session_switch", async (_event, ctx) => {
+    await installClawsewitzHeader(pi, ctx, cache);
+  });
 }
