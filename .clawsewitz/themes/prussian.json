@@ -1,0 +1,16 @@
+{
+  "name": "prussian",
+  "colors": {
+    "primary": "#1E3A5F",
+    "primaryDark": "#132846",
+    "primaryLight": "#E8EDF4",
+    "accent": "#4A7AB5",
+    "background": "#0D1520",
+    "surface": "#141E2D",
+    "text": "#E8EDF4",
+    "textMuted": "#8899AA",
+    "success": "#3DBA4E",
+    "warning": "#E5A825",
+    "error": "#EE5555"
+  }
+}
