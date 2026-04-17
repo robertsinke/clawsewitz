@@ -23,6 +23,7 @@
     "scripts/",
     "skills/",
     "references/",
+    "AGENTS.md",
     "README.md"
   ],
   "scripts": {

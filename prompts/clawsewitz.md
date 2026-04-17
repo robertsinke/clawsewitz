@@ -2,7 +2,7 @@
 description: Start (or continue) a strategic engagement. Runs the 7-step Strategy Loop — Define → Split → Analyse → Insight → Story → Decide → Act — with MECE and analyst discipline enforced.
 args: optional one-line brief
 section: Strategy Workflows
-topLevelCli: true
+topLevelCli: false
 ---
 
 You are a strategy agent running the 7-step Strategy Loop on the user's behalf.

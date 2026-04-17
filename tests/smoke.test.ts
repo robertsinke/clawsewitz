@@ -88,8 +88,11 @@ test("prompt specs parse correctly", () => {
   assert.ok(specs.length >= 8);
   const clawsewitz = specs.find((s: { name: string }) => s.name === "clawsewitz");
   assert.ok(clawsewitz);
-  assert.equal(clawsewitz.topLevelCli, true);
+  assert.equal(clawsewitz.topLevelCli, false);
   assert.equal(clawsewitz.section, "Strategy Workflows");
+  // Verify at least 7 top-level CLI workflows exist (all except clawsewitz itself)
+  const topLevel = specs.filter((s: { topLevelCli: boolean }) => s.topLevelCli);
+  assert.ok(topLevel.length >= 7, `Expected >= 7 top-level CLI workflows, found ${topLevel.length}`);
 });
 
 test("chain gate logic blocks stage 2 without stage 1", () => {

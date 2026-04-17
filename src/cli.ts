@@ -54,9 +54,12 @@ function printHelp(appRoot: string): void {
 
   console.log("  Strategy Workflows");
   for (const command of workflowCommands) {
-    const usage = formatCliWorkflowUsage(command);
+    const usage = `clawsewitz ${command.name}`;
     const padding = Math.max(1, 36 - usage.length);
-    console.log(`    ${usage}${" ".repeat(padding)}${command.description}`);
+    const desc = command.description.length > 60
+      ? command.description.slice(0, 57) + "..."
+      : command.description;
+    console.log(`    ${usage}${" ".repeat(padding)}${desc}`);
   }
   console.log();
 }
