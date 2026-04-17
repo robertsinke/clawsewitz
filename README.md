@@ -1,6 +1,6 @@
 # clawsewitz
 
-The open source AI strategy agent for Claude Code.
+The open source AI strategy agent. Now available as a standalone CLI and a Claude Code plugin.
 
 ```
          ███                                                           ███   ███
@@ -14,11 +14,42 @@ The open source AI strategy agent for Claude Code.
 
 ## Install
 
+**npm** (primary):
+
+```bash
+npm install -g clawsewitz
+```
+
+**curl** (standalone):
+
 ```bash
 curl -fsSL https://robertsinke.github.io/clawsewitz/install | bash
 ```
 
-Requires: `git`, `node` (>=20), `claude` CLI.
+**Claude Code plugin**:
+
+```bash
+curl -fsSL https://robertsinke.github.io/clawsewitz/install-plugin | bash
+```
+
+**Skills only**:
+
+```bash
+curl -fsSL https://robertsinke.github.io/clawsewitz/install-skills | bash
+```
+
+Requires: `node` (>=20.19.0).
+
+## Usage
+
+```
+clawsewitz                                    # Interactive strategy session
+clawsewitz "Acme — subscriber decline"        # Start with a brief
+clawsewitz decompose "Why are customers churning?" # Standalone workflow
+clawsewitz audit strategy.md                  # Red-team a plan
+clawsewitz research "competitor landscape"    # Competitive intel
+clawsewitz doctor                             # Check installation
+```
 
 ## What it does
 
@@ -33,15 +64,6 @@ A self-contained **Strategy Loop** with 9 workflows, 4 agents, 70 frameworks, an
 | 5. Story | `cw-story` | 05-story.md — structured narrative |
 | 6. Decide | `cw-decide` | 06-decide.md — recommendation |
 | 7. Act | `cw-act` | 07-act.md — implementation plan |
-
-## Quick start
-
-```
-claude
-/clawsewitz Acme Design — subscriber decline, 5%/mo for 3 months, need turnaround
-```
-
-The agent creates a case workspace, runs the 7-step chain in partner voice, produces deliverables at each stage, and enforces MECE rigor via automated checks.
 
 ## Workflows
 
@@ -74,9 +96,18 @@ The agent creates a case workspace, runs the 7-step chain in partner voice, prod
 - **6 hooks** — chain-order gate, auto-commit, MECE reminders, analysis-paralysis detection, and more
 - **70 frameworks** — from the Strategist Toolkit: SCQ, HTDQ, Minto Pyramid, Driver Tree, SPADE, Bezos, GTM Stack, Zero-to-One, and 60+ more
 
+## Dual Distribution
+
+clawsewitz ships as two distributions:
+
+- **Standalone Pi CLI** (primary) — install via npm or the standalone curl script. Runs `clawsewitz` as a top-level command in any terminal, powered by the Pi runtime.
+- **Claude Code plugin** (secondary) — install via the plugin curl script. Adds `/clawsewitz` and `/cw-*` commands inside Claude Code sessions.
+
+Both distributions share the same skills, agents, frameworks, and hooks. The CLI is the recommended entry point for new users; the plugin is available for teams already working inside Claude Code.
+
 ## Version
 
-v0.4.0
+v1.0.0
 
 ## License
 

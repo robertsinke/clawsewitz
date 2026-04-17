@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.0.0 — 2026-04-17
+
+### Added
+- Standalone CLI on Pi — `clawsewitz` command launches an interactive strategy session in any terminal
+- 8 top-level workflow commands: decompose, brief, audit, evaluate, research, plan, frameworks
+- Custom Pi extension with 3 tools (framework_lookup, mece_structural_check, case_search) and 6 lifecycle hooks
+- Prussian blue TUI theme
+- Custom dashboard header showing model, session, workflows, and system info
+- `clawsewitz doctor` command for installation verification
+- Smoke test suite (10 tests)
+- Dual distribution: standalone Pi CLI (primary) + Claude Code plugin (secondary)
+
+### Changed
+- Project restructured for Pi/npm distribution alongside Claude Code plugin
+- Settings format updated to Pi standard (defaultProvider, defaultModel, npm: package prefixes)
+- Hooks ported from shell scripts to TypeScript Pi extension events
+
 ## 0.4.0 — 2026-04-16
 - Strategic repositioning: capability-focused messaging, implicit Clausewitz foundation
 - Agent team redesign: Researcher → Analyst → Writer → Challenger pipeline

@@ -10,9 +10,7 @@ YELLOW='\033[33m'
 RED='\033[31m'
 RESET='\033[0m'
 
-VERSION="0.4.0"
-REPO="https://github.com/robertsinke/clawsewitz"
-PLUGIN_DIR="${HOME}/.claude/plugins/local/clawsewitz"
+VERSION="1.0.0"
 
 splash() {
   printf '\n'
@@ -25,7 +23,7 @@ splash() {
   printf '███      ███  ███   ███   ███ ██ ███       ███  ███       ███ ██ ███   ███   ███    ███\n'
   printf '  █████  ███  ███   ███    ███  ███    ███████    █████    ███  ███    ███    ███  ███████\n'
   printf "${RESET}\n"
-  printf "${DIM}  The open source AI strategy agent for Claude Code${RESET}\n"
+  printf "${DIM}  The open source AI strategy agent${RESET}\n"
   printf "${DIM}  v%s · MIT · github.com/robertsinke/clawsewitz${RESET}\n\n" "$VERSION"
 }
 
@@ -40,62 +38,51 @@ check() {
   fi
 }
 
+semver_gte() {
+  # Returns 0 (true) if version $1 >= $2, where both are "major.minor.patch"
+  local IFS='.'
+  local v1=($1) v2=($2)
+  local maj1="${v1[0]:-0}" min1="${v1[1]:-0}" pat1="${v1[2]:-0}"
+  local maj2="${v2[0]:-0}" min2="${v2[1]:-0}" pat2="${v2[2]:-0}"
+  if [ "$maj1" -gt "$maj2" ]; then return 0; fi
+  if [ "$maj1" -lt "$maj2" ]; then return 1; fi
+  if [ "$min1" -gt "$min2" ]; then return 0; fi
+  if [ "$min1" -lt "$min2" ]; then return 1; fi
+  if [ "$pat1" -ge "$pat2" ]; then return 0; fi
+  return 1
+}
+
 splash
 
 printf "${BOLD}Checking prerequisites...${RESET}\n"
 ok=true
-check "git" "git" || ok=false
-check "node (>=20)" "node" || ok=false
-check "claude CLI" "claude" || ok=false
+check "node (>=20.19.0)" "node" || ok=false
+check "npm" "npm" || ok=false
 
 if [ "$ok" = false ]; then
   printf "\n${RED}Missing prerequisites. Install them and re-run.${RESET}\n"
   exit 1
 fi
 
-node_version=$(node -v | sed 's/^v//' | cut -d. -f1)
-if [ "$node_version" -lt 20 ]; then
-  printf "\n${RED}Node.js >=20 required (found v%s).${RESET}\n" "$(node -v)"
+node_ver=$(node -v | sed 's/^v//')
+if ! semver_gte "$node_ver" "20.19.0"; then
+  printf "\n${RED}Node.js >=20.19.0 required (found v%s).${RESET}\n" "$node_ver"
   exit 1
 fi
+printf "  ${GREEN}✓${RESET} node v%s\n" "$node_ver"
 
 printf "\n${BOLD}Installing clawsewitz...${RESET}\n"
 
-if [ -d "$PLUGIN_DIR/.git" ]; then
-  printf "  Updating existing installation...\n"
-  git -C "$PLUGIN_DIR" pull --ff-only 2>/dev/null || {
-    printf "  ${YELLOW}Pull failed — re-cloning...${RESET}\n"
-    rm -rf "$PLUGIN_DIR"
-    git clone --depth 1 "$REPO" "$PLUGIN_DIR"
-  }
-else
-  if [ -d "$PLUGIN_DIR" ]; then
-    printf "  ${YELLOW}Existing directory found (not a git repo). Backing up...${RESET}\n"
-    mv "$PLUGIN_DIR" "${PLUGIN_DIR}.bak.$(date +%s)"
-  fi
-  mkdir -p "$(dirname "$PLUGIN_DIR")"
-  git clone --depth 1 "$REPO" "$PLUGIN_DIR"
-fi
+npm install -g clawsewitz
 
-printf "  ${GREEN}✓${RESET} Plugin sources installed\n"
+printf "  ${GREEN}✓${RESET} clawsewitz installed\n"
 
-printf "\n${BOLD}Registering with Claude Code...${RESET}\n"
-
-if claude plugin marketplace add "$PLUGIN_DIR" >/dev/null 2>&1; then
-  printf "  ${GREEN}✓${RESET} Marketplace registered\n"
-else
-  printf "  ${DIM}Marketplace already registered${RESET}\n"
-fi
-
-if claude plugin install clawsewitz@clawsewitz-local >/dev/null 2>&1; then
-  printf "  ${GREEN}✓${RESET} Plugin installed\n"
-else
-  printf "  ${DIM}Plugin already installed${RESET}\n"
-fi
+printf "\n${BOLD}Verifying installation...${RESET}\n"
+clawsewitz doctor
 
 printf "\n${GREEN}${BOLD}✓ clawsewitz v%s installed.${RESET}\n\n" "$VERSION"
-printf "  Start an engagement:\n"
-printf "    ${PRUSSIAN}claude${RESET}\n"
-printf "    ${PRUSSIAN}/clawsewitz${RESET} Acme — subscriber decline, 5%%/mo, need turnaround\n\n"
-printf "  Browse frameworks:\n"
-printf "    ${PRUSSIAN}/cw-frameworks browse${RESET}\n\n"
+printf "  Start a strategy session:\n"
+printf "    ${PRUSSIAN}clawsewitz${RESET}\n"
+printf "    ${PRUSSIAN}clawsewitz \"Acme — subscriber decline\"${RESET}\n\n"
+printf "  Run a standalone workflow:\n"
+printf "    ${PRUSSIAN}clawsewitz decompose \"Why are customers churning?\"${RESET}\n\n"
