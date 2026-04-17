@@ -6,51 +6,57 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 <DocsLayout title="Installation" current="Installation">
 
 <h1 class="text-3xl font-bold tracking-tight mb-2">Installation</h1>
-<p class="text-text-secondary mb-8">Clawsewitz can be installed as a Claude Code plugin via a one-line installer or manually with git.</p>
+<p class="text-text-secondary mb-8">Clawsewitz runs as a standalone CLI in any terminal. It's also available as a Claude Code plugin.</p>
 
-<h2 class="text-xl font-bold mt-10 mb-3" id="one-line">One-line installer (recommended)</h2>
-<p class="text-text-secondary mb-4">On macOS or Linux, open a terminal and run:</p>
+<h2 class="text-xl font-bold mt-10 mb-3" id="npm">npm (recommended)</h2>
+<p class="text-text-secondary mb-4">Install globally with npm — requires Node.js 20.19 or later:</p>
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
-  <code class="font-mono text-[13px] text-text-primary">curl -fsSL https://raw.githubusercontent.com/robertsinke/clawsewitz/main/scripts/install.sh | bash</code>
+  <code class="font-mono text-[13px] text-text-primary">npm install -g clawsewitz</code>
 </div>
-<p class="text-text-secondary mb-4">The installer detects your OS, clones the plugin to <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">~/.claude/plugins/local/clawsewitz/</code>, registers the marketplace, and installs the plugin. It checks for <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">git</code>, <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">node</code> (≥20), and the <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">claude</code> CLI before proceeding.</p>
-
-<h2 class="text-xl font-bold mt-10 mb-3" id="manual">Manual install</h2>
-<p class="text-text-secondary mb-4">If you prefer to install manually:</p>
-<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-2 overflow-x-auto flex flex-col gap-1">
-  <code class="font-mono text-[13px] text-text-primary">git clone --depth 1 https://github.com/robertsinke/clawsewitz \</code>
-  <code class="font-mono text-[13px] text-text-primary pl-4">~/.claude/plugins/local/clawsewitz</code>
-</div>
-<p class="text-text-secondary mb-4">Then register and install the plugin:</p>
+<p class="text-text-secondary mb-4">Then run from any directory:</p>
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto flex flex-col gap-1">
-  <code class="font-mono text-[13px] text-text-primary">claude plugin marketplace add ~/.claude/plugins/local/clawsewitz</code>
-  <code class="font-mono text-[13px] text-text-primary">claude plugin install clawsewitz@clawsewitz-local</code>
+  <code class="font-mono text-[13px] text-text-primary">clawsewitz</code>
+  <code class="font-mono text-[13px] text-text-muted"># or with a brief:</code>
+  <code class="font-mono text-[13px] text-text-primary">clawsewitz "Acme — subscriber decline, need turnaround"</code>
 </div>
+
+<h2 class="text-xl font-bold mt-10 mb-3" id="curl">One-line installer</h2>
+<p class="text-text-secondary mb-4">On macOS or Linux, install without npm:</p>
+<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
+  <code class="font-mono text-[13px] text-text-primary">curl -fsSL https://robertsinke.github.io/clawsewitz/install | bash</code>
+</div>
+
+<h2 class="text-xl font-bold mt-10 mb-3" id="plugin">Claude Code plugin</h2>
+<p class="text-text-secondary mb-4">If you prefer to use clawsewitz inside Claude Code instead of as a standalone CLI:</p>
+<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
+  <code class="font-mono text-[13px] text-text-primary">curl -fsSL https://robertsinke.github.io/clawsewitz/install-plugin | bash</code>
+</div>
+<p class="text-text-secondary mb-4">This installs clawsewitz as a Claude Code plugin with slash commands (<code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">/clawsewitz</code>, <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">/cw-decompose</code>, etc.), hooks for chain enforcement, and subagent delegation. Same strategy content, different runtime.</p>
+
+<h2 class="text-xl font-bold mt-10 mb-3" id="verify">Verifying the installation</h2>
+<p class="text-text-secondary mb-4">Check that everything is working:</p>
+<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto flex flex-col gap-1">
+  <code class="font-mono text-[13px] text-text-primary">clawsewitz --version</code>
+  <code class="font-mono text-[13px] text-text-muted"># 1.0.0</code>
+</div>
+<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto flex flex-col gap-1">
+  <code class="font-mono text-[13px] text-text-primary">clawsewitz doctor</code>
+  <code class="font-mono text-[13px] text-text-muted"># ✓ Pi runtime found</code>
+  <code class="font-mono text-[13px] text-text-muted"># ✓ Extension found</code>
+  <code class="font-mono text-[13px] text-text-muted"># ✓ Prompt templates found</code>
+</div>
+<p class="text-text-secondary">If all checks pass, you're ready. See the <a href={`${base}docs/quickstart`} class="text-prussian underline underline-offset-2">Quick Start</a> guide to run your first engagement.</p>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="updating">Updating</h2>
-<p class="text-text-secondary mb-4">Re-run the installer or pull manually:</p>
-<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto flex flex-col gap-1">
-  <code class="font-mono text-[13px] text-text-primary">cd ~/.claude/plugins/local/clawsewitz && git pull</code>
-  <code class="font-mono text-[13px] text-text-primary">claude plugin update clawsewitz@clawsewitz-local</code>
+<p class="text-text-secondary mb-4">Update via npm:</p>
+<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
+  <code class="font-mono text-[13px] text-text-primary">npm update -g clawsewitz</code>
 </div>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="uninstalling">Uninstalling</h2>
-<p class="text-text-secondary mb-4">Remove the plugin from Claude Code and delete the files:</p>
-<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto flex flex-col gap-1">
-  <code class="font-mono text-[13px] text-text-primary">claude plugin uninstall clawsewitz@clawsewitz-local</code>
-  <code class="font-mono text-[13px] text-text-primary">rm -rf ~/.claude/plugins/local/clawsewitz</code>
-</div>
-
-<h2 class="text-xl font-bold mt-10 mb-3" id="verify">Verifying the installation</h2>
-<p class="text-text-secondary mb-4">Confirm clawsewitz is installed and accessible:</p>
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
-  <code class="font-mono text-[13px] text-text-primary">claude plugin list | grep clawsewitz</code>
+  <code class="font-mono text-[13px] text-text-primary">npm uninstall -g clawsewitz</code>
 </div>
-<p class="text-text-secondary mb-4">You should see:</p>
-<div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
-  <code class="font-mono text-[13px] text-text-primary">clawsewitz@clawsewitz-local  Version: 0.4.0  Status: ✔ enabled</code>
-</div>
-<p class="text-text-secondary">If you see a version number, you are ready to go. See the <a href={`${base}docs/quickstart`} class="text-prussian underline underline-offset-2">Quick Start</a> guide to run your first engagement.</p>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="skills-only">Skills-only bundle</h2>
 <p class="text-text-secondary mb-4">If you only want the strategy skills and framework library without agents, workflows, or hooks:</p>
