@@ -108,7 +108,7 @@ export function installClawsewitzHeader(
 
         // Logo
         push("");
-        if (cardW >= 94) {
+        if (cardW >= 70) {
           const maxLogoW = Math.max(...CLAWSEWITZ_LOGO.map((l) => l.length));
           const logoOffset = " ".repeat(Math.max(0, Math.floor((cardW - maxLogoW) / 2)));
           for (const logoLine of CLAWSEWITZ_LOGO) {
