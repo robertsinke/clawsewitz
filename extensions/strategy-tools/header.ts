@@ -106,13 +106,18 @@ export function installClawsewitzHeader(
         const cores = cpus().length;
         const ramTotal = `${Math.round(totalmem() / (1024 ** 3))}GB`;
 
-        // Logo
+        // Logo — three tiers:
+        // Wide (>= 94): full logo, centered
+        // Medium (>= 50): full logo, left-aligned with 2-space indent (right edge clips gracefully)
+        // Narrow (< 50): plain text fallback
         push("");
-        if (cardW >= 70) {
+        if (cardW >= 50) {
           const maxLogoW = Math.max(...CLAWSEWITZ_LOGO.map((l) => l.length));
-          const logoOffset = " ".repeat(Math.max(0, Math.floor((cardW - maxLogoW) / 2)));
+          const logoOffset = cardW >= maxLogoW + 4
+            ? " ".repeat(Math.floor((cardW - maxLogoW) / 2))
+            : "  ";
           for (const logoLine of CLAWSEWITZ_LOGO) {
-            push(theme.fg("accent", theme.bold(`${logoOffset}${truncateVisible(logoLine, cardW)}`)));
+            push(theme.fg("accent", theme.bold(truncateVisible(`${logoOffset}${logoLine}`, cardW))));
           }
           push("");
         } else {
