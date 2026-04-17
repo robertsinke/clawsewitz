@@ -3,16 +3,22 @@ import { cpus, homedir, totalmem } from "node:os";
 import { resolve as resolvePath } from "node:path";
 
 import type { ExtensionAPI, ExtensionContext } from "@mariozechner/pi-coding-agent";
-import { visibleWidth } from "@mariozechner/pi-tui";
+import { truncateToWidth, visibleWidth } from "@mariozechner/pi-tui";
 
 function formatHeaderPath(path: string): string {
   const home = homedir();
   return path.startsWith(home) ? `~${path.slice(home.length)}` : path;
 }
 
+function truncateVisible(text: string, maxVisible: number): string {
+  if (visibleWidth(text) <= maxVisible) return text;
+  return truncateToWidth(text, maxVisible, maxVisible <= 3 ? "" : "...");
+}
+
 function padRight(text: string, width: number): string {
-  const gap = Math.max(0, width - visibleWidth(text));
-  return `${text}${" ".repeat(gap)}`;
+  const truncated = visibleWidth(text) > width ? truncateToWidth(text, width, "") : text;
+  const gap = Math.max(0, width - visibleWidth(truncated));
+  return `${truncated}${" ".repeat(gap)}`;
 }
 
 function getCurrentModelLabel(ctx: ExtensionContext): string {
@@ -92,12 +98,13 @@ export function installClawsewitzHeader(
 
         // Title
         push("");
-        push(theme.fg("accent", theme.bold("  clawsewitz")));
+        push(padRight(theme.fg("accent", theme.bold("  clawsewitz")), cardW));
         push("");
 
         // Version bar
         const versionTag = ` v${CLAWSEWITZ_VERSION} `;
-        const gap = Math.max(0, innerW - versionTag.length);
+        const versionTagLen = versionTag.length;
+        const gap = Math.max(0, innerW - versionTagLen);
         const gapL = Math.floor(gap / 2);
         push(
           border(`╭${"─".repeat(gapL)}`) +
@@ -107,28 +114,31 @@ export function installClawsewitzHeader(
 
         if (useWideLayout) {
           const cmdNameW = 16;
+          const leftValueW = Math.max(1, leftW - 11);
+          const descW = Math.max(1, rightW - cmdNameW - 1);
 
           // Left column: system info
           const leftLines: string[] = [
             "",
-            `${theme.fg("dim", "model".padEnd(10))} ${theme.fg("text", modelLabel)}`,
-            `${theme.fg("dim", "directory".padEnd(10))} ${theme.fg("text", dirLabel)}`,
-            `${theme.fg("dim", "session".padEnd(10))} ${theme.fg("dim", sessionId)}`,
+            `${theme.fg("dim", "model".padEnd(10))} ${truncateVisible(theme.fg("text", modelLabel), leftValueW)}`,
+            `${theme.fg("dim", "directory".padEnd(10))} ${truncateVisible(theme.fg("text", dirLabel), leftValueW)}`,
+            `${theme.fg("dim", "session".padEnd(10))} ${truncateVisible(theme.fg("dim", sessionId), leftValueW)}`,
             "",
-            theme.fg("dim", `${cores} cores · ${ramTotal}`),
+            truncateVisible(theme.fg("dim", `${cores} cores · ${ramTotal}`), leftW),
             "",
-            theme.fg("dim", `${toolCount} tools · ${agentCount} agents`),
+            truncateVisible(theme.fg("dim", `${toolCount} tools · ${agentCount} agents`), leftW),
           ];
 
           // Right column: workflows
           const rightLines: string[] = [
             "",
-            theme.fg("accent", theme.bold("Strategy Workflows")),
+            truncateVisible(theme.fg("accent", theme.bold("Strategy Workflows")), rightW),
           ];
 
           for (const wf of workflows) {
+            const desc = truncateVisible(theme.fg("dim", wf.description), descW);
             rightLines.push(
-              `${theme.fg("accent", wf.name.padEnd(cmdNameW))}${theme.fg("dim", wf.description.slice(0, rightW - cmdNameW))}`,
+              `${theme.fg("accent", wf.name.padEnd(cmdNameW))}${desc}`,
             );
           }
 
@@ -138,18 +148,21 @@ export function installClawsewitzHeader(
           }
         } else {
           // Narrow layout
+          const narrowValW = Math.max(1, contentW - 11);
           push(emptyRow());
-          push(row(`${theme.fg("dim", "model".padEnd(10))} ${theme.fg("text", modelLabel)}`));
-          push(row(`${theme.fg("dim", "directory".padEnd(10))} ${theme.fg("text", dirLabel)}`));
-          push(row(`${theme.fg("dim", "session".padEnd(10))} ${theme.fg("dim", sessionId)}`));
-          push(row(theme.fg("dim", `${cores} cores · ${ramTotal}`)));
-          push(row(theme.fg("dim", `${toolCount} tools · ${agentCount} agents`)));
+          push(row(`${theme.fg("dim", "model".padEnd(10))} ${truncateVisible(theme.fg("text", modelLabel), narrowValW)}`));
+          push(row(`${theme.fg("dim", "directory".padEnd(10))} ${truncateVisible(theme.fg("text", dirLabel), narrowValW)}`));
+          push(row(`${theme.fg("dim", "session".padEnd(10))} ${truncateVisible(theme.fg("dim", sessionId), narrowValW)}`));
+          push(row(truncateVisible(theme.fg("dim", `${cores} cores · ${ramTotal}`), contentW)));
+          push(row(truncateVisible(theme.fg("dim", `${toolCount} tools · ${agentCount} agents`), contentW)));
           push(emptyRow());
 
           // Workflows
+          const narrowDescW = Math.max(1, contentW - 17);
           push(row(theme.fg("accent", theme.bold("Strategy Workflows"))));
           for (const wf of workflows) {
-            push(row(`${theme.fg("accent", wf.name.padEnd(16))} ${theme.fg("dim", wf.description.slice(0, contentW - 17))}`));
+            const desc = truncateVisible(theme.fg("dim", wf.description), narrowDescW);
+            push(row(`${theme.fg("accent", wf.name.padEnd(16))} ${desc}`));
           }
         }
 
