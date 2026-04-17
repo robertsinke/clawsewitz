@@ -182,6 +182,7 @@ export function syncBundledAssets(appRoot: string, agentDir: string): BootstrapS
 	syncManagedFiles(resolve(appRoot, ".clawsewitz", "themes"), resolve(agentDir, "themes"), "themes", state, result);
 	syncManagedFiles(resolve(appRoot, ".clawsewitz", "agents"), resolve(agentDir, "agents"), "agents", state, result);
 	syncManagedFiles(resolve(appRoot, "skills"), resolve(agentDir, "skills"), "skills", state, result);
+	syncManagedFiles(resolve(appRoot, "references"), resolve(agentDir, "references"), "references", state, result);
 
 	writeBootstrapState(statePath, state);
 	return result;

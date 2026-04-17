@@ -9,6 +9,7 @@ import { registerCaseCommand } from "./strategy-tools/case-manager.js";
 import { registerAnalysisParalysis } from "./strategy-tools/analysis-paralysis.js";
 import { registerAnalystAmplification } from "./strategy-tools/analyst-amplification.js";
 import { registerSessionResume } from "./strategy-tools/session-resume.js";
+import { registerMeceStructuralCheck } from "./strategy-tools/mece-structural-check.js";
 import { installClawsewitzHeader } from "./strategy-tools/header.js";
 
 export default function strategyTools(pi: ExtensionAPI): void {
@@ -21,6 +22,7 @@ export default function strategyTools(pi: ExtensionAPI): void {
   registerAnalysisParalysis(pi);
   registerAnalystAmplification(pi);
   registerSessionResume(pi);
+  registerMeceStructuralCheck(pi);
 
   const cache: { agentCountPromise?: Promise<number> } = {};
 
