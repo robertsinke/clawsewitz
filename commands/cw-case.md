@@ -23,7 +23,7 @@ Parse:
    - `~/.claude/clawsewitz/cases/`
 2. For each case directory, read its `CASE.md` and surface:
    - Slug
-   - Current stage (latest numbered file written)
+   - Artefacts present (intake, decomposition, analysis, brief, recommendation, plan, …)
    - Date of the latest file
    - One-line status from CASE.md
 3. Sort by latest-modified descending. Print as a table.
@@ -33,11 +33,11 @@ Parse:
 
 1. Locate the case workspace matching the slug (in either location).
 2. Read `CASE.md` and surface:
-   - Current stage
+   - Artefacts present
    - Framework choices made so far
-   - Any `cw-mece-check` verdicts on file
-3. Ask: *"Resume from `<next-stage>`, or revisit a prior stage?"*
-4. Invoke the appropriate stage skill. The skill's HARD-GATE will verify prior artefacts; no manual orchestration needed.
+   - Any MECE validation verdicts on file
+3. Ask: *"Resume from `<next-move>`, or revisit a prior artefact?"*
+4. Re-enter `/clawsewitz` with the workspace loaded as context. The orchestrator picks up wherever the artefacts left off.
 
 ## Archive
 
@@ -49,4 +49,4 @@ Parse:
 
 - **Ambiguous slug.** If multiple cases match, list them and ask the user to disambiguate.
 - **Cross-location case.** If the same slug exists in both project-local and user-global, ask which to use.
-- **Missing CASE.md.** If the directory exists but lacks CASE.md, regenerate a minimal one by scanning the numbered files and inferring the current stage.
+- **Missing CASE.md.** If the directory exists but lacks CASE.md, regenerate a minimal one by scanning the artefacts present and inferring the engagement state.

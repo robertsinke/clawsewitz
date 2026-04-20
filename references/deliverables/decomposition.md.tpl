@@ -1,6 +1,6 @@
-# Split — {{case_slug}}
+# Decomposition — {{case_slug}}
 
-*Stage 2 · Split · produced by cw-split*
+*Decomposition artefact.*
 
 ## Framework chosen: {{framework}} — reason
 
@@ -30,20 +30,16 @@ Problem statement: *{{problem_statement}}*
 | 2 | {{hyp_2}} | {{test_2}} |
 | 3 | {{hyp_3}} | {{test_3}} |
 
-## cw-mece-check verdict
+## MECE validation verdict
 
-*(Appended automatically by the post-tool-use hook after cw-mece-check runs.)*
+*(Appended by the `analyst` agent in MECE validation mode.)*
 
 {{mece_verdict}}
 
 ## Schwerpunkt — Center of Gravity
 
-*The single branch of this tree that, if moved, cascades the rest. Not necessarily the biggest — the one with the largest downstream effect. `cw-analyse` will go deepest here.*
+*The single branch of this tree that, if moved, cascades the rest. Not necessarily the biggest — the one with the largest downstream effect. Analysis goes deepest here.*
 
 **Schwerpunkt:** {{schwerpunkt}}
 
 **Reason it cascades:** {{schwerpunkt_reason}}
-
-## Handoff
-
-→ **Invoke `cw-analyse` next.** Name the minimum set of analyses that would make the insight inescapable. Analyse the Schwerpunkt first and deepest.

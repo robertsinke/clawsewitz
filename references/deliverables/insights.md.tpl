@@ -1,8 +1,8 @@
-# Insight — {{case_slug}}
+# Insights — {{case_slug}}
 
-*Stage 4 · Insight · produced by cw-insight*
+*Insights artefact.*
 
-Take each "so what" from Stage 3 and mount it on the right page archetype. Fewer, sharper pages beat more, softer ones.
+Take each "so what" from the analysis and mount it on the right page archetype. Fewer, sharper pages beat more, softer ones.
 
 ## Page plan
 
@@ -36,9 +36,5 @@ Take each "so what" from Stage 3 and mount it on the right page archetype. Fewer
 
 ## HTML artefacts generated (optional)
 
-- `insight/{{page_1_slug}}.html` — {{page_1_html_note}}
-- `insight/{{page_2_slug}}.html` — {{page_2_html_note}}
-
-## Handoff
-
-→ **Invoke `cw-story` next.** Stitch these into a Minto Pyramid (or alternate narrative).
+- `insights/{{page_1_slug}}.html` — {{page_1_html_note}}
+- `insights/{{page_2_slug}}.html` — {{page_2_html_note}}

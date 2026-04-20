@@ -1,6 +1,6 @@
 # Intake — {{case_slug}}
 
-*Stage 0 · Intake · produced by cw-intake*
+*Intake artefact.*
 
 ## Brief (verbatim)
 
@@ -57,6 +57,3 @@
 | **Army (chance / creativity)** | Who actually executes? Where does operational friction live? | {{trinity_army}} |
 | **Government (reason / policy)** | Who approves, funds, and sets the policy this must serve? | {{trinity_government}} |
 
-## Handoff
-
-→ **Invoke `cw-define` next.** Chosen framing lens will be recorded in `01-define.md`.

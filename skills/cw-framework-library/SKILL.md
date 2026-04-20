@@ -19,15 +19,15 @@ Given a framework name (e.g. `SCQ`, `HTDQ`, `Outcome`, `Driver Tree`, `Bucketing
 
 If the name does not match, suggest the closest 3 matches and ask the user to pick. Do not fabricate a framework.
 
-## When other skills call this
+## When the orchestrator calls this
 
-- `cw-define` — to load SCQ / HTDQ / Outcome templates
-- `cw-split` — to load Driver Tree / Bucketing / Hypothesis templates
-- `cw-analyse` — to load the chart spec for the chosen analysis
-- `cw-insight` — to load the layout spec for the chosen page archetype
-- `cw-story` — to load Minto / Story Spine / 5 Act / StoryBrand
-- `cw-decide` — to load Eisenhower / ABCD / Decision Tree / SPADE / Bezos / Pros & Cons / Evaluation / Bull & Bear
-- `cw-act` — to load Zero-to-One / Comms / Decision Grid / GTM Stack / Execution Plan / Capability Drop
+- **Frame** — to load SCQ / HTDQ / Outcome templates
+- **Decompose** — to load Driver Tree / Bucketing / Hypothesis templates
+- **Analyse** — to load the chart spec for the chosen analysis
+- **Insights** — to load the layout spec for the chosen page archetype
+- **Narrative** — to load Minto / Story Spine / 5 Act / StoryBrand
+- **Recommend** — to load Eisenhower / ABCD / Decision Tree / SPADE / Bezos / Pros & Cons / Evaluation / Bull & Bear
+- **Plan** — to load Zero-to-One / Comms / Decision Grid / GTM Stack / Execution Plan / Capability Drop
 
 ## Flexibility
 

@@ -12,8 +12,22 @@ function getCaseRoots(cwd: string): string[] {
   return roots;
 }
 
-function findMostRecentCase(roots: string[]): { slug: string; stage: string; dir: string } | null {
-  let newest: { slug: string; stage: string; dir: string; mtime: number } | null = null;
+const ARTEFACTS = [
+  "intake.md",
+  "frame.md",
+  "decomposition.md",
+  "research-brief.md",
+  "analysis.md",
+  "insights.md",
+  "brief.md",
+  "recommendation.md",
+  "plan.md",
+];
+
+function findMostRecentCase(
+  roots: string[],
+): { slug: string; artefacts: string[]; dir: string } | null {
+  let newest: { slug: string; artefacts: string[]; dir: string; mtime: number } | null = null;
 
   for (const root of roots) {
     if (!existsSync(root)) continue;
@@ -21,15 +35,17 @@ function findMostRecentCase(roots: string[]): { slug: string; stage: string; dir
       const dir = resolve(root, entry);
       if (!statSync(dir).isDirectory()) continue;
 
-      const files = readdirSync(dir).filter((f) => /^\d{2}-/.test(f) && f.endsWith(".md"));
+      const files = readdirSync(dir).filter((f) => f.endsWith(".md"));
       if (files.length === 0) continue;
 
-      const latestFile = files.sort().pop()!;
-      const stage = latestFile.slice(0, 2);
-      const mtime = statSync(resolve(dir, latestFile)).mtimeMs;
+      const artefacts = ARTEFACTS.filter((a) => files.includes(a));
+      if (artefacts.length === 0) continue;
+
+      const mtimes = artefacts.map((a) => statSync(resolve(dir, a)).mtimeMs);
+      const mtime = Math.max(...mtimes);
 
       if (!newest || mtime > newest.mtime) {
-        newest = { slug: entry, stage, dir, mtime };
+        newest = { slug: entry, artefacts, dir, mtime };
       }
     }
   }
@@ -43,12 +59,8 @@ export function registerSessionResume(pi: ExtensionAPI): void {
     const active = findMostRecentCase(roots);
     if (!active) return;
 
-    const stageNames = ["intake", "define", "split", "analyse", "insight", "story", "decide", "act"];
-    const nextIdx = Math.min(Number(active.stage) + 1, 7);
-    const next = `cw-${stageNames[nextIdx]}`;
-
     ctx.ui.notify(
-      `Open case: "${active.slug}" — stage ${active.stage}. Next: ${next}. Resume with /case resume ${active.slug}`,
+      `Open case: "${active.slug}" — ${active.artefacts.length} artefact(s): ${active.artefacts.join(", ")}. Resume with /cw-case resume ${active.slug}`,
       "info",
     );
   });

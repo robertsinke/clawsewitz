@@ -32,7 +32,7 @@ If the argument is non-empty, treat it as the research question. If empty, ask: 
 
 ## Scope control
 
-This is a thin wrapper — the value is in having a direct command that reaches the researcher agent without running the full Strategy Loop. The researcher handles the methodology; this command handles the routing.
+This is a thin wrapper — the value is in having a direct command that reaches the researcher agent without running the full `clawsewitz` engagement. The researcher handles the methodology; this command handles the routing.
 
 If the user provides file paths alongside the question, pass them to the researcher as local material to incorporate.
 

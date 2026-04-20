@@ -1,6 +1,6 @@
-# Story — {{case_slug}}
+# Brief — {{case_slug}}
 
-*Stage 5 · Story · produced by cw-story*
+*Narrative brief artefact.*
 
 ## Framework chosen: {{framework}} — reason
 
@@ -39,16 +39,12 @@
 - **ME across arguments:** {{me_check}}
 - **CE across arguments:** {{ce_check}}
 
-## cw-mece-check verdict
+## MECE validation verdict
 
-*(Appended automatically by the post-tool-use hook after cw-mece-check runs.)*
+*(Appended by the `analyst` agent in MECE validation mode, checking the three arguments.)*
 
 {{mece_verdict}}
 
 ## Deck (optional, if pptx skill available)
 
 - `deck.pptx` — generated via the `pptx` skill
-
-## Handoff
-
-→ **Invoke `cw-decide` next.** Convert the argument into a recommendation.

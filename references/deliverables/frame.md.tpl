@@ -1,6 +1,6 @@
-# Define — {{case_slug}}
+# Frame — {{case_slug}}
 
-*Stage 1 · Define · produced by cw-define*
+*Frame artefact.*
 
 ## Framework chosen: {{framework}} — reason
 
@@ -62,6 +62,3 @@
 - {{assumption_1}}
 - {{assumption_2}}
 
-## Handoff
-
-→ **Invoke `cw-split` next.** The split must be MECE and will be checked by `cw-mece-check`.

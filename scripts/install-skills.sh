@@ -25,7 +25,7 @@ splash() {
   printf '███      ███  ███   ███   ███ ██ ███       ███  ███       ███ ██ ███   ███   ███    ███\n'
   printf '  █████  ███  ███   ███    ███  ███    ███████    █████    ███  ███    ███    ███  ███████\n'
   printf "${RESET}\n"
-  printf "${DIM}  Skills-only bundle — 70 frameworks & strategy stage skills${RESET}\n"
+  printf "${DIM}  Skills-only bundle — 70 frameworks & utility skills${RESET}\n"
   printf "${DIM}  v%s · MIT · github.com/robertsinke/clawsewitz${RESET}\n\n" "$VERSION"
 }
 
@@ -76,7 +76,7 @@ printf "  ${GREEN}✓${RESET} References copied\n"
 cat > "$PLUGIN_DIR/.claude-plugin/plugin.json" <<PLUGINJSON
 {
   "name": "clawsewitz-skills",
-  "description": "Clawsewitz skills-only bundle — 70 frameworks and strategy stage skills without agents, commands, or hooks.",
+  "description": "Clawsewitz skills-only bundle — 70 frameworks and utility skills without agents, commands, or hooks.",
   "version": "${VERSION}",
   "author": {
     "name": "Robert Sinke"
@@ -103,7 +103,7 @@ cat > "$PLUGIN_DIR/.claude-plugin/marketplace.json" <<MARKETJSON
   "plugins": [
     {
       "name": "clawsewitz-skills",
-      "description": "Clawsewitz skills-only bundle — 70 frameworks and strategy stage skills without agents, commands, or hooks.",
+      "description": "Clawsewitz skills-only bundle — 70 frameworks and utility skills without agents, commands, or hooks.",
       "version": "${VERSION}",
       "source": "./",
       "author": {

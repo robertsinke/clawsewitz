@@ -1,6 +1,6 @@
-# Analyse — {{case_slug}}
+# Analysis — {{case_slug}}
 
-*Stage 3 · Analyse · produced by cw-analyse*
+*Analysis artefact.*
 
 ## Plan of analyses
 
@@ -29,16 +29,12 @@ For each leg of the split, name the analysis that will test it. Before running a
 **So what:**
 {{analysis_1_sowhat}}
 
-*(Repeat section per analysis. Financial analyses that warrant xlsx go in subdirectory `03-analyse/` — e.g. `03-analyse/unit-economics.xlsx` — produced via the `xlsx` skill if available.)*
+*(Repeat section per analysis. Financial analyses that warrant xlsx go in subdirectory `analysis/` — e.g. `analysis/unit-economics.xlsx` — produced via the `xlsx` skill if available.)*
 
 ---
 
 ## Exit test
 
-- [ ] In combination, the analyses make the Stage-4 insight inescapable.
+- [ ] In combination, the analyses make the insight inescapable.
 - [ ] Each analysis has a "so what".
 - [ ] No analysis remains whose result will not change a decision.
-
-## Handoff
-
-→ **Invoke `cw-insight` next.** Convert the "so whats" into structured takeaway pages.

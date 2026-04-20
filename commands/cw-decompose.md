@@ -5,47 +5,67 @@ argument-hint: "<problem statement>"
 
 # /cw-decompose
 
-Standalone problem decomposition — framing through validated MECE tree — without the full Strategy Loop.
+Standalone problem decomposition — framing through validated MECE tree.
 
 ## Before anything else
 
-1. **Load the partner voice.** Read `${CLAUDE_PLUGIN_ROOT}/references/partner-voice.md`. Adopt it for this engagement.
-2. **Load the MECE rubric.** Read `${CLAUDE_PLUGIN_ROOT}/references/mece.md`. Every split will be tested against it.
+1. **Load the partner voice.** Read `${CLAUDE_PLUGIN_ROOT}/references/partner-voice.md`. Adopt it.
+2. **Load the MECE rubric.** Read `${CLAUDE_PLUGIN_ROOT}/references/mece.md`. Every split is tested against it.
 
 ## Argument
 
 **$ARGUMENTS**
 
-If the argument is non-empty, treat it as the problem statement. If empty, ask the user one question: *"What problem do you want to decompose?"*
+If non-empty, treat as the problem statement. If empty, ask: *"What problem do you want to decompose?"*
 
 ## Workspace
 
-This is a lightweight decomposition — not a full case. Write outputs to a `decomposition/` directory:
+Lightweight — not a full case. Write to a `decomposition/<slug>/` directory:
 - In the current working directory if it is a git repo
-- Otherwise in `~/.claude/clawsewitz/decompositions/`
+- Otherwise `~/.claude/clawsewitz/decompositions/<slug>/`
 
-Name the directory with a slug derived from the problem statement and today's date.
+Slug = hyphenated summary + today's date.
 
 ## Process
 
-1. **Invoke `cw-define`** with the problem statement as context. cw-define will frame the problem using the appropriate lens (SCQ, HTDQ, or Outcome). Write the output to `decomposition/<slug>/01-define.md`.
+1. **Frame the problem in one sentence.** Pick the lens by signals — SCQ (known context, exec comms), HTDQ (narrative/pitch), or Outcome (ambiguous, senior sponsor). Default SCQ. State the choice and reason. If you judge the brief is answering the wrong question, re-frame and say so.
 
-2. **Invoke `cw-split`** to decompose the framed problem into a MECE tree (Driver Tree for top-down math, Bucketing for bottom-up ideas, Hypothesis Tree for investigative questions). Write the output to `decomposition/<slug>/02-split.md`.
+2. **Pick the decomposition framework:**
 
-3. **Invoke the `analyst` agent** with the split artefact and the MECE rubric. Goal: validate that every branch pair is mutually exclusive, the tree is collectively exhaustive, and no branch is too fuzzy to act on. Append the validation verdict to `02-split.md`.
+   | Signal | Framework |
+   |---|---|
+   | Drivers known, math-like identity (Revenue = Volume × Price) | **Driver Tree** |
+   | Drivers unclear, many ideas to organise | **Bucketing** |
+   | Investigative, ambiguous root cause | **Hypothesis Tree** |
 
-4. **Return the validated tree.** Surface:
-   - The problem frame (one line)
-   - The tree structure (indented outline)
-   - The MECE verdict (pass / pass with caveats / fail with named issues)
-   - If fail: name the exact branches that overlap or the gap that breaks CE
+   Bias: prefer Driver Tree when an identity exists — MECE by construction.
+
+3. **Build the tree** (2–4 levels). Every leaf gets a one-line definition. No fuzzy branches. If you need a 5th level, you're building the analysis — stop and defer.
+
+4. **Name the Schwerpunkt** — the single branch that, if moved, cascades the rest. Test: remove it; is this still the same problem? If yes, pick again.
+
+5. **Write `decomposition/<slug>/decomposition.md`** with the frame, the tree, and the Schwerpunkt.
+
+6. **Dispatch the `analyst` agent in MECE validation mode** with the decomposition file. The analyst walks each pair for overlap, names the universe for gaps, checks dimension consistency, and returns a verdict (Pass / Pass-with-notes / Fail) with specific named issues. Append the verdict to `decomposition.md`.
+
+7. **On Fail**, redraw surgically and re-dispatch. Max 2 iterations. If still failing, surface the root disagreement to the user (usually a definitional question about the universe).
+
+## Output
+
+Return:
+- The problem frame (one line, with framework)
+- The tree (indented outline)
+- The Schwerpunkt (one line + why it cascades)
+- The MECE verdict (pass / pass-with-notes / fail, with named issues)
+- Path to the written artefact
 
 ## Scope boundary
 
-This command does **not** continue to Analyse, Insight, Story, Decide, or Act. It stops at a validated decomposition. If the user wants to continue, point them to `/clawsewitz` with the decomposition as input.
+This command stops at a validated decomposition. It does **not** continue to analysis or recommendation. To run the full engagement, use `/clawsewitz`.
 
 ## Anti-patterns to refuse
 
-- **Decomposing before framing** — the problem statement must be framed (SCQ/HTDQ/Outcome) before splitting. Do not skip cw-define.
-- **More than 4 levels deep on first pass** — a tree deeper than 4 levels is likely boiling the ocean. Flag it and suggest scoping down.
-- **Branches without definitions** — every branch must have a one-line definition. Fuzzy branches are not MECE-testable.
+- **Decomposing before framing** — the problem statement must be framed before splitting.
+- **More than 4 levels deep on first pass** — likely boiling the ocean. Flag and scope down.
+- **Branches without definitions** — fuzzy branches are not MECE-testable.
+- **Dimension mixing** — size + geography in the same level fails ME. Split twice instead.

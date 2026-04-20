@@ -1,12 +1,12 @@
 # Framework Selection — The Master Decision Tree
 
-This is the "McKinsey instinct" distilled. Each stage skill consults the sub-section that applies to it. The agent **states the framework choice and the one-line reason before executing it.**
+This is the "McKinsey instinct" distilled. The orchestrator consults the sub-section that applies to each engagement move. **State the framework choice and the one-line reason before executing it.**
 
-Rule of thumb for every stage: **pick the simplest framework that would not embarrass a senior partner.** If SCQ will do, do not use Outcome. If Pros & Cons will do, do not build a weighted Evaluation matrix. Simplicity scales.
+Rule of thumb for every move: **pick the simplest framework that would not embarrass a senior partner.** If SCQ will do, do not use Outcome. If Pros & Cons will do, do not build a weighted Evaluation matrix. Simplicity scales.
 
 ---
 
-## Stage 1 — Define
+## Frame
 
 | Signal | Framework | Why |
 |---|---|---|
@@ -18,7 +18,7 @@ Tiebreak: if the audience is a board or a CEO expecting written recommendations,
 
 ---
 
-## Stage 2 — Split
+## Decompose
 
 | Signal | Framework |
 |---|---|
@@ -30,7 +30,7 @@ Always run a MECE self-check (see `mece.md`). If the split fails MECE, fix it be
 
 ---
 
-## Stage 3 — Analyse
+## Analyse
 
 Three sub-routers: **Data (Quant)**, **Financial (Quant)**, **Question (Qual)**. Pick the minimum set of analyses that will make the insight inescapable.
 
@@ -69,11 +69,11 @@ Three sub-routers: **Data (Quant)**, **Financial (Quant)**, **Question (Qual)**.
 | Full root-cause investigation | **5W + H** |
 | Diagnostic decision flow | **Yes/No** |
 
-**Exit criterion for Stage 3:** the analyses in combination make the Stage-4 insight inescapable. If they do not, add analyses; if they do, stop and move on.
+**Exit criterion for Analyse:** the analyses in combination make the insight inescapable. If they do not, add analyses; if they do, stop and move on.
 
 ---
 
-## Stage 4 — Insight (takeaway page archetypes)
+## Insights (takeaway page archetypes)
 
 | Signal | Layout |
 |---|---|
@@ -105,7 +105,7 @@ Three sub-routers: **Data (Quant)**, **Financial (Quant)**, **Question (Qual)**.
 
 ---
 
-## Stage 5 — Story
+## Narrative
 
 | Signal | Framework |
 |---|---|
@@ -119,7 +119,7 @@ Always run a MECE check on the Minto arguments before writing prose. Governing-t
 
 ---
 
-## Stage 6 — Decide
+## Recommend
 
 | Signal | Framework |
 |---|---|
@@ -136,7 +136,7 @@ Default posture: name which decision **type** the call is (ABCD / Bezos) before 
 
 ---
 
-## Stage 7 — Act
+## Plan
 
 | Signal | Framework |
 |---|---|

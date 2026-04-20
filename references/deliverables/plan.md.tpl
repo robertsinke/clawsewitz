@@ -1,6 +1,6 @@
-# Act — {{case_slug}}
+# Plan — {{case_slug}}
 
-*Stage 7 · Act · produced by cw-act*
+*Implementation plan artefact.*
 
 ## Framework chosen: {{framework}} — reason
 
@@ -66,7 +66,7 @@
 
 ## Challenger review (Premortem) — *"six months from now, this failed"*
 
-*(Appended by the challenger agent in Premortem mode before case close-out.)*
+*(Appended by the `challenger` agent in Premortem mode.)*
 
 {{premortem}}
 
@@ -85,11 +85,9 @@
 
 The case is complete. Canonical deliverables for the engagement:
 
-- `05-story.md` — partner-ready narrative
-- `06-decide.md` — recommendation
-- `07-act.md` — implementation plan
+- `brief.md` — partner-ready narrative
+- `recommendation.md` — recommendation
+- `plan.md` — implementation plan
 - `deck.pptx` / `financials.xlsx` (if those skills are available)
 
-## Handoff
-
-→ This is the terminal stage. **Update `CASE.md` with the final status and close out.**
+Update `CASE.md` with the final status and close out.

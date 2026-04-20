@@ -8,10 +8,9 @@ function isCasePath(path: string): boolean {
   return path.includes("/clawsewitz/cases/") || path.includes("/.clawsewitz/cases/");
 }
 
-function stageOf(path: string): string | null {
+function artefactLabel(path: string): string {
   const base = basename(path);
-  const match = base.match(/^(\d{2})-/);
-  return match ? match[1] : null;
+  return base.replace(/\.md$/, "");
 }
 
 function isAutoCommitEnabled(): boolean {
@@ -34,10 +33,9 @@ export function registerAutoCommit(pi: ExtensionAPI): void {
     const path = (event.input as Record<string, unknown>)?.path as string | undefined ?? "";
     if (!isCasePath(path)) return;
 
-    const stage = stageOf(path);
     const slug = basename(dirname(path));
-    const label = `stage-${stage ?? "x"}`;
-    const msg = `cw(${slug}): ${label} ${basename(path)}`;
+    const label = artefactLabel(path);
+    const msg = `cw(${slug}): ${label}`;
 
     try {
       // Use pi.exec (Pi SDK method) to safely run git commands

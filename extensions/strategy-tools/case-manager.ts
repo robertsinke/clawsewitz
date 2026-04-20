@@ -3,6 +3,18 @@ import { resolve } from "node:path";
 import { homedir } from "node:os";
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
+const ARTEFACTS = [
+  "intake.md",
+  "frame.md",
+  "decomposition.md",
+  "research-brief.md",
+  "analysis.md",
+  "insights.md",
+  "brief.md",
+  "recommendation.md",
+  "plan.md",
+];
+
 function getCaseRoots(cwd: string): string[] {
   const roots: string[] = [];
   const local = resolve(cwd, "docs", "clawsewitz", "cases");
@@ -20,10 +32,9 @@ function findCase(roots: string[], slug: string): string | null {
   return null;
 }
 
-function getLatestStage(caseDir: string): string {
-  const files = readdirSync(caseDir).filter((f) => /^\d{2}-/.test(f) && f.endsWith(".md"));
-  if (files.length === 0) return "--";
-  return files.sort().pop()!.slice(0, 2);
+function getArtefacts(caseDir: string): string[] {
+  const files = new Set(readdirSync(caseDir).filter((f) => f.endsWith(".md")));
+  return ARTEFACTS.filter((a) => files.has(a));
 }
 
 export function registerCaseCommand(pi: ExtensionAPI): void {
@@ -47,8 +58,9 @@ export function registerCaseCommand(pi: ExtensionAPI): void {
           for (const entry of readdirSync(root)) {
             const dir = resolve(root, entry);
             if (!statSync(dir).isDirectory()) continue;
-            const stage = getLatestStage(dir);
-            cases.push(`  ${entry.padEnd(30)} stage ${stage}`);
+            const artefacts = getArtefacts(dir);
+            const summary = artefacts.length ? artefacts.join(", ") : "(empty)";
+            cases.push(`  ${entry.padEnd(30)} ${summary}`);
           }
         }
 
@@ -75,12 +87,12 @@ export function registerCaseCommand(pi: ExtensionAPI): void {
           ctx.ui.notify(`Case "${slug}" not found.`, "error");
           return;
         }
-        const stage = getLatestStage(caseDir);
-        const stageNames = ["intake", "define", "split", "analyse", "insight", "story", "decide", "act"];
-        const nextIdx = Math.min(Number(stage) + 1, 7);
-        const nextSkill = `cw-${stageNames[nextIdx]}`;
+        const artefacts = getArtefacts(caseDir);
+        const summary = artefacts.length ? artefacts.join(", ") : "(empty)";
 
-        pi.sendUserMessage(`Resume case "${slug}" from stage ${stage}. Next: invoke ${nextSkill}.`);
+        pi.sendUserMessage(
+          `Resume case "${slug}". Artefacts present: ${summary}. Re-enter /clawsewitz and continue from wherever the engagement left off.`,
+        );
         return;
       }
 

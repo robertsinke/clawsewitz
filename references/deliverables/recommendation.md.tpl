@@ -1,6 +1,6 @@
-# Decide — {{case_slug}}
+# Recommendation — {{case_slug}}
 
-*Stage 6 · Decide · produced by cw-decide*
+*Recommendation artefact.*
 
 ## Decision type
 
@@ -49,7 +49,7 @@ Before picking a method, name the **type** of decision this is. (ABCD: big-bet /
 
 ## Challenger review (Red Team)
 
-*(Appended by the challenger agent in Red Team mode before handoff to cw-act.)*
+*(Appended by the `challenger` agent in Red Team mode.)*
 
 {{red_team_review}}
 
@@ -63,7 +63,3 @@ Before picking a method, name the **type** of decision this is. (ABCD: big-bet /
 ## Next decision required
 
 {{next_decision}}
-
-## Handoff
-
-→ **Invoke `cw-act` next.** Build the implementation plan for the recommended option.

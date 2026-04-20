@@ -33,7 +33,7 @@ export function registerAnalystAmplification(pi: ExtensionAPI): void {
     const isFailure = FAILURE_KEYWORDS.some((kw) => text.includes(kw));
     if (isFailure) {
       ctx.ui.notify(
-        "Analyst flagged this stage. Do NOT proceed until the flagged issue is addressed. Re-read the verdict, redraw, and re-invoke the analyst before handoff.",
+        "Analyst flagged this artefact. Do NOT proceed until the flagged issue is addressed. Re-read the verdict, redraw, and re-dispatch the analyst.",
         "warning",
       );
     }
