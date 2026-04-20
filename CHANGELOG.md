@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased — Stageless IA (breaking change)
+
+### Breaking changes
+
+- **Removed the 7-step Strategy Loop chain.** The plugin is now "4 agents + workflows." Workflows compose agents directly; there is no phase layer.
+- **Deleted 9 stage skills:** `cw-intake`, `cw-define`, `cw-split`, `cw-analyse`, `cw-insight`, `cw-story`, `cw-decide`, `cw-act`, `cw-mece-check`. Their distinctive logic (7 intake questions, framework-selection signal tables, Clausewitzian lenses, self-check checklists) is harvested into the `/clawsewitz` orchestrator. MECE validation folds into the `analyst` agent.
+- **Renamed case artefacts from numbered to job-named:** `00-intake.md` → `intake.md`, `01-define.md` → `frame.md`, `02-split.md` → `decomposition.md`, `03-analyse.md` → `analysis.md`, `04-insight.md` → `insights.md`, `05-story.md` → `brief.md`, `06-decide.md` → `recommendation.md`, `07-act.md` → `plan.md`. Templates renamed to match. Existing cases will still be readable but the orchestrator writes to the new names going forward.
+- **Removed extension hooks** whose premise was the chain: `chain-gate`, `mece-reminder`, `analysis-paralysis`. `auto-commit`, `session-resume`, and `case-manager` now key off job-named artefacts.
+
+### Rewritten
+
+- `/clawsewitz` — single inline orchestrator. Sequences `researcher`, `analyst`, `challenger`, `writer` directly through intake → frame → decompose → research → analyse → insights → narrative → recommend → plan. Carries all seven Clausewitzian lenses.
+- `/cw-decompose` — dispatches the `analyst` agent directly for MECE validation (no longer chains through `cw-define` and `cw-split`).
+
 ## 1.0.0 — 2026-04-17
 
 ### Added

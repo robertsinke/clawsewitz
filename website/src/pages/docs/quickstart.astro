@@ -11,24 +11,26 @@ import DocsLayout from '../../layouts/docs.astro';
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
   <code class="font-mono text-[13px] text-text-primary">clawsewitz "Acme Design — subscriber decline, 5%/mo for 3 months, need turnaround"</code>
 </div>
-<p class="text-text-secondary mb-4">The agent creates a case workspace, sets partner posture, and begins the 7-step Strategy Loop at intake. Or launch the interactive REPL with just <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">clawsewitz</code> and use slash commands inside.</p>
+<p class="text-text-secondary mb-4">The agent creates a case workspace, sets partner posture, and starts triage — seven intake questions before any analysis. Or launch the interactive REPL with just <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">clawsewitz</code> and use slash commands inside.</p>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="define">What happens next</h2>
-<p class="text-text-secondary mb-4">The agent walks through seven stages, producing a deliverable at each step. The chain gate enforces order — you can't skip ahead.</p>
+<p class="text-text-secondary mb-4">The orchestrator works through nine moves, writing one job-named artefact per move. Moves without signal are skipped — the orchestrator says so out loud when it does.</p>
 
 <div class="flex flex-col gap-3 mt-4 mb-8">
   {[
-    { stage: '1. Define', file: '01-define.md', desc: 'Frame the problem using SCQ, HTDQ, or Outcome.' },
-    { stage: '2. Split', file: '02-split.md', desc: 'MECE decomposition. Validated by the analyst agent.' },
-    { stage: '3. Analyse', file: '03-analyse.md', desc: 'Run analyses on each leg of the tree using 70+ frameworks.' },
-    { stage: '4. Insight', file: '04-insight.md', desc: 'Mount so-whats on page archetypes (Canvas, 2×2, Journey Map).' },
-    { stage: '5. Story', file: '05-story.md', desc: 'Structured narrative via Minto Pyramid, SCQA, or StoryBrand.' },
-    { stage: '6. Decide', file: '06-decide.md', desc: 'Recommendation with red-team adversarial review.' },
-    { stage: '7. Act', file: '07-act.md', desc: 'Implementation plan with risk register and premortem.' },
+    { step: 'Intake', file: 'intake.md', desc: 'Seven clarifying questions. Partner read. Trinity stakeholder force-map.' },
+    { step: 'Frame', file: 'frame.md', desc: 'Frame the problem using SCQ, HTDQ, or Outcome.' },
+    { step: 'Decompose', file: 'decomposition.md', desc: 'MECE decomposition. Validated by the analyst agent. Schwerpunkt named.' },
+    { step: 'Research', file: 'research-brief.md', desc: 'Optional. Researcher agent gathers external evidence.' },
+    { step: 'Analyse', file: 'analysis.md', desc: 'Run analyses on each leg of the tree using 70+ frameworks.' },
+    { step: 'Insights', file: 'insights.md', desc: 'Mount so-whats on page archetypes (Canvas, 2×2, Journey Map). Fog acknowledged.' },
+    { step: 'Narrative', file: 'brief.md', desc: 'Writer agent structures Minto Pyramid, SCQA, or StoryBrand. Boldness test.' },
+    { step: 'Recommend', file: 'recommendation.md', desc: 'Named option with Ends-Ways-Means. Red-team adversarial review.' },
+    { step: 'Plan', file: 'plan.md', desc: 'Implementation plan with friction register, reserves, and premortem.' },
   ].map((s) => (
     <div class="flex gap-4 items-start rounded-lg bg-surface-card p-4">
-      <div class="shrink-0">
-        <span class="font-mono text-[13px] font-semibold text-prussian">{s.stage}</span>
+      <div class="shrink-0 w-24">
+        <span class="font-mono text-[13px] font-semibold text-prussian">{s.step}</span>
       </div>
       <div>
         <p class="text-sm text-text-primary">{s.desc}</p>
@@ -64,33 +66,31 @@ import DocsLayout from '../../layouts/docs.astro';
 </div>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="frameworks">Frameworks</h2>
-<p class="text-text-secondary mb-4">Look up any of 70 frameworks by name or by stage:</p>
+<p class="text-text-secondary mb-4">Look up any of 70 frameworks by name:</p>
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-2 overflow-x-auto">
   <code class="font-mono text-[13px] text-text-primary">clawsewitz frameworks "SPADE"</code>
 </div>
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
   <code class="font-mono text-[13px] text-text-primary">/frameworks define</code>
 </div>
-<p class="text-text-secondary mb-4">Each framework comes with a definition, worked example, and step-by-step instructions. The framework selector in each stage picks the right tool for the engagement type.</p>
+<p class="text-text-secondary mb-4">Each framework comes with a definition, worked example, and step-by-step instructions. The orchestrator picks the right framework for each move based on engagement signals.</p>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="subagents">Agents</h2>
-<p class="text-text-secondary mb-4">Four specialized agents are dispatched automatically at the right stages:</p>
+<p class="text-text-secondary mb-4">Four specialized agents. The orchestrator dispatches them inline as the engagement unfolds:</p>
 <ul class="list-disc pl-5 text-text-secondary flex flex-col gap-2 mb-4">
   <li><strong class="text-text-primary">Researcher</strong> — hunts for evidence across the web, benchmarks, and competitive landscape</li>
   <li><strong class="text-text-primary">Analyst</strong> — decomposes problems, applies frameworks, validates MECE integrity</li>
-  <li><strong class="text-text-primary">Writer</strong> — structures findings into briefs, memos, and slide narratives</li>
-  <li><strong class="text-text-primary">Challenger</strong> — stress-tests plans, plays adversary, writes the failure narrative</li>
+  <li><strong class="text-text-primary">Writer</strong> — structures findings into briefs, memos, slide narratives, and implementation plans</li>
+  <li><strong class="text-text-primary">Challenger</strong> — stress-tests plans, plays adversary (Red Team), writes the failure narrative (Premortem)</li>
 </ul>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="hooks">Enforcement</h2>
-<p class="text-text-secondary mb-4">Built-in guardrails enforce discipline throughout the engagement:</p>
+<p class="text-text-secondary mb-4">Built-in guardrails reinforce discipline throughout the engagement:</p>
 <ul class="list-disc pl-5 text-text-secondary flex flex-col gap-2 mb-4">
-  <li><strong class="text-text-primary">Chain gate</strong> — blocks writing stage N if stage N-1 doesn't exist</li>
-  <li><strong class="text-text-primary">MECE reminder</strong> — prompts validation after Split and Story stages</li>
-  <li><strong class="text-text-primary">Auto-commit</strong> — optionally commits every case file write to git</li>
-  <li><strong class="text-text-primary">Analysis paralysis</strong> — nudges toward Insight after repeated Analyse writes</li>
+  <li><strong class="text-text-primary">Auto-commit</strong> — optionally commits every case artefact to git</li>
   <li><strong class="text-text-primary">Analyst amplifier</strong> — highlights analyst verdicts that flag problems</li>
   <li><strong class="text-text-primary">Session resume</strong> — surfaces active cases on startup</li>
+  <li><strong class="text-text-primary">MECE structural check tool</strong> — quick structural pass before the analyst handles semantics</li>
 </ul>
 
 <h2 class="text-xl font-bold mt-10 mb-3">Resume a case</h2>

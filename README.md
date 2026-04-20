@@ -53,17 +53,9 @@ clawsewitz doctor                             # Check installation
 
 ## What it does
 
-A self-contained **Strategy Loop** with 9 workflows, 4 agents, 70 frameworks, and MECE enforcement at every stage.
+**4 specialist agents + 9 workflows.** Workflows compose agents directly — no phase chain, no stage skills. The full orchestrator (`/clawsewitz`) runs the engagement end-to-end by sequencing the agents inline; standalone workflows reach one or two agents for narrower jobs.
 
-| Stage | Command | Produces |
-|-------|---------|----------|
-| 1. Define | `cw-define` | 01-define.md — SCQ / HTDQ / Outcome frame |
-| 2. Split | `cw-split` | 02-split.md — MECE decomposition tree |
-| 3. Analyse | `cw-analyse` | 03-analyse.md — data + qualitative analysis |
-| 4. Insight | `cw-insight` | 04-insight.md — so-whats on page archetypes |
-| 5. Story | `cw-story` | 05-story.md — structured narrative |
-| 6. Decide | `cw-decide` | 06-decide.md — recommendation |
-| 7. Act | `cw-act` | 07-act.md — implementation plan |
+Case artefacts are named for the job they do — `intake.md`, `decomposition.md`, `analysis.md`, `insights.md`, `brief.md`, `recommendation.md`, `plan.md` — not for a phase number.
 
 ## Workflows
 
@@ -90,10 +82,10 @@ A self-contained **Strategy Loop** with 9 workflows, 4 agents, 70 frameworks, an
 
 ## What's under the hood
 
-- **11 skills** — 7 rigid chain stages + cw-mece-check, cw-framework-library, session-search
-- **4 agents** — Researcher (fact-gathering), Analyst (MECE review), Writer (narratives), Challenger (adversarial + premortem)
+- **4 agents** — Researcher (fact-gathering), Analyst (framework review + MECE validation), Writer (narratives + plans), Challenger (Red Team + premortem)
 - **9 workflows** — full engagement, decompose, brief, audit, evaluate, research, plan, case management, framework browsing
-- **6 enforcement guardrails** — chain gate, auto-commit, MECE reminders, analysis-paralysis detection, analyst amplification, session resume
+- **2 utility skills** — cw-framework-library (70-framework catalog lookup), session-search (cross-engagement recall)
+- **Enforcement guardrails** — auto-commit, analyst amplification on Fail verdicts, session resume, MECE structural check tool
 - **70 frameworks** — from the Strategist Toolkit: SCQ, HTDQ, Minto Pyramid, Driver Tree, SPADE, Bezos, GTM Stack, Zero-to-One, and 60+ more
 
 ## Dual Distribution
@@ -103,7 +95,7 @@ clawsewitz ships as two distributions:
 - **Standalone Pi CLI** (primary) — install via npm or the standalone curl script. Runs `clawsewitz` as a top-level command in any terminal, powered by the Pi runtime.
 - **Claude Code plugin** (secondary) — install via the plugin curl script. Adds `/clawsewitz` and `/cw-*` commands inside Claude Code sessions.
 
-Both distributions share the same skills, agents, and frameworks. The CLI is the recommended entry point for new users; the plugin is available for teams already working inside Claude Code.
+Both distributions share the same agents, workflows, and frameworks. The CLI is the recommended entry point for new users; the plugin is available for teams already working inside Claude Code.
 
 ## Version
 
