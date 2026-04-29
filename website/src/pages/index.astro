@@ -155,7 +155,8 @@ Snowflake wins (3.8) &mdash; ramp time and ops burden carry it.</pre>
 <!-- Workflows -->
 <section class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col items-center py-16">
   <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">Workflows</h2>
-  <p class="text-center mt-2 text-[15px] text-text-secondary">Eight workflows. Each produces a deliverable. Runnable from the terminal or as slash commands inside the REPL.</p>
+  <p class="text-center mt-2 max-w-2xl text-[15px] text-text-secondary">Eight things you can ask for. Each produces a deliverable. Trigger by slash command, by natural language (an auto-routing skill picks the workflow), or by the standalone CLI prompt.</p>
+  <p class="text-center mt-2 max-w-2xl text-[13px] text-text-muted">New brief? Skip the menu — just describe the problem. The <code class="font-mono text-prussian">engagement-intake</code> skill triages it, asks the missing questions, and routes to the right workflow.</p>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-8 w-full">
     {[
       { cmd: '/decompose', desc: 'Break a problem into a validated MECE tree' },
@@ -170,32 +171,6 @@ Snowflake wins (3.8) &mdash; ramp time and ops burden carry it.</pre>
       <div class="flex flex-col rounded-xl gap-1.5 bg-surface-card p-5">
         <code class="font-mono text-[13px] font-semibold text-prussian">{wf.cmd}</code>
         <p class="text-[13px] leading-5 text-text-secondary">{wf.desc}</p>
-      </div>
-    ))}
-  </div>
-</section>
-
-<!-- Skills -->
-<section class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col items-center py-16">
-  <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">Skills</h2>
-  <p class="text-center mt-2 text-[15px] text-text-secondary">Triggered by what you ask for. The agent reaches for the right one — no fixed sequence.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-8 w-full">
-    {[
-      { name: 'engagement-intake', desc: 'Triage a fresh strategic brief. Seven clarifying questions, partner read, suggested next move.' },
-      { name: 'mece-decomposition', desc: 'Break a problem into a validated Mutually Exclusive, Collectively Exhaustive tree. Driver, bucket, or hypothesis.' },
-      { name: 'evaluating-options', desc: 'Score options against weighted criteria. Pros & Cons, Evaluation matrix, or SPADE — plus adversarial review.' },
-      { name: 'writing-briefs', desc: 'Raw findings → answer-first executive brief. Minto Pyramid, SCQA, or exec memo.' },
-      { name: 'implementation-planning', desc: 'Build a roadmap with workstreams, milestones, risk register, and a premortem failure narrative.' },
-      { name: 'red-teaming-plans', desc: 'Stress-test any plan or strategy document. Red Team adversary + Premortem extraction.' },
-      { name: 'strategic-research', desc: 'Structured competitive, market, or industry intel. Sourced and dated.' },
-      { name: 'cw-framework-library', desc: 'Look up any of 70 strategy frameworks — definition, worked example, instructions.' },
-      { name: 'session-search', desc: 'Recall prior engagements and reach back into past analysis.' },
-    ].map((skill) => (
-      <div class="flex flex-col rounded-xl gap-2.5 justify-between bg-surface-card p-5">
-        <div>
-          <code class="font-mono text-[13px] font-semibold text-prussian">{skill.name}</code>
-          <p class="mt-1.5 text-[13px] leading-5 text-text-secondary">{skill.desc}</p>
-        </div>
       </div>
     ))}
   </div>
@@ -220,16 +195,16 @@ Snowflake wins (3.8) &mdash; ramp time and ops burden carry it.</pre>
   </div>
 </section>
 
-<!-- Skills & Tools -->
+<!-- Tools -->
 <section class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col items-center py-16">
-  <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">Skills & Tools</h2>
-  <p class="text-center mt-2 text-[15px] text-text-secondary">How clawsewitz searches, structures, and delivers.</p>
+  <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">Tools</h2>
+  <p class="text-center mt-2 max-w-xl text-[15px] text-text-secondary">What the agent reaches for inside a workflow — not separate things you invoke.</p>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-8 w-full">
     {[
       { name: 'Framework Library', desc: '70 frameworks with definitions, worked examples, and step-by-step instructions' },
       { name: 'Web Search', desc: 'Competitive landscape, market data, industry benchmarks, and recent news' },
-      { name: 'Session Search', desc: 'Search across past engagements — find prior analyses, decisions, and deliverables' },
-      { name: 'Preview', desc: 'Render HTML visualizations: Canvas, 2×2 Matrix, Journey Map, Positioning Map' },
+      { name: 'Session Search', desc: 'Recall prior engagements — past analyses, decisions, and deliverables' },
+      { name: 'Visualizations', desc: 'Render HTML diagrams: Canvas, 2×2 Matrix, Journey Map, Positioning Map' },
     ].map((tool) => (
       <div class="flex flex-col items-center rounded-xl gap-1.5 bg-surface-card p-5 text-center">
         <span class="font-semibold text-sm text-text-primary">{tool.name}</span>
