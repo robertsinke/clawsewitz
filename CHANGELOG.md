@@ -1,18 +1,33 @@
 # Changelog
 
-## Unreleased — Stageless IA (breaking change)
+## Unreleased — Skill-first architecture (breaking change)
+
+The plugin is now a Superpowers-style skill-first system. Three layers (agents, workflows, skills) compose as the situation demands. No orchestrator walking a fixed sequence.
 
 ### Breaking changes
 
-- **Removed the 7-step Strategy Loop chain.** The plugin is now "4 agents + workflows." Workflows compose agents directly; there is no phase layer.
-- **Deleted 9 stage skills:** `cw-intake`, `cw-define`, `cw-split`, `cw-analyse`, `cw-insight`, `cw-story`, `cw-decide`, `cw-act`, `cw-mece-check`. Their distinctive logic (7 intake questions, framework-selection signal tables, Clausewitzian lenses, self-check checklists) is harvested into the `/clawsewitz` orchestrator. MECE validation folds into the `analyst` agent.
-- **Renamed case artefacts from numbered to job-named:** `00-intake.md` → `intake.md`, `01-define.md` → `frame.md`, `02-split.md` → `decomposition.md`, `03-analyse.md` → `analysis.md`, `04-insight.md` → `insights.md`, `05-story.md` → `brief.md`, `06-decide.md` → `recommendation.md`, `07-act.md` → `plan.md`. Templates renamed to match. Existing cases will still be readable but the orchestrator writes to the new names going forward.
-- **Removed extension hooks** whose premise was the chain: `chain-gate`, `mece-reminder`, `analysis-paralysis`. `auto-commit`, `session-resume`, and `case-manager` now key off job-named artefacts.
+- **Removed `/clawsewitz` orchestrator.** No single command runs a scripted end-to-end engagement. The agent composes skills based on user intent. To run a full strategic exercise, chain the relevant skills (e.g. `engagement-intake` → `mece-decomposition` → `strategic-research` → `evaluating-options` → `implementation-planning`).
+- **Removed the 7-step Strategy Loop.** The stage chain and the `cw-intake`, `cw-define`, `cw-split`, `cw-analyse`, `cw-insight`, `cw-story`, `cw-decide`, `cw-act`, `cw-mece-check` skills are all deleted.
+- **Dropped all Clausewitzian content.** The plugin brand name (a Clausewitz pun) stays; the theory does not. Removed: the Trinity stakeholder force-map, Schwerpunkt (center of gravity), moral forces analysis, fog acknowledgement lines, boldness test, Ends-Ways-Means litmus, friction register, named Reserves section. Where the underlying discipline was useful (risk register, slack/buffer for unknowns), it survives in neutral PM language. `references/clausewitz-concepts.md` is deleted.
+- **Removed all deliverable templates** (`references/deliverables/*.tpl`). They were consumed only by the deleted stage skills; workflows now write their own content structure.
+- **Removed extension hooks tied to the chain:** `chain-gate`, `mece-reminder`, `analysis-paralysis`. `auto-commit`, `session-resume`, and `case-manager` rewired off numbered-file logic.
+
+### Added
+
+- **9 skills** in `skills/`, triggered by natural-language user intent:
+  - `engagement-intake` — triage a fresh brief (7 questions, partner read, suggested next move)
+  - `mece-decomposition` — wrapper over `/cw-decompose`
+  - `evaluating-options` — wrapper over `/cw-evaluate`
+  - `writing-briefs` — wrapper over `/cw-brief`
+  - `implementation-planning` — wrapper over `/cw-plan`
+  - `red-teaming-plans` — wrapper over `/cw-audit`
+  - `strategic-research` — wrapper over `/cw-research`
+  - `framework-library`, `session-search` (already existed; retained)
 
 ### Rewritten
 
-- `/clawsewitz` — single inline orchestrator. Sequences `researcher`, `analyst`, `challenger`, `writer` directly through intake → frame → decompose → research → analyse → insights → narrative → recommend → plan. Carries all seven Clausewitzian lenses.
-- `/cw-decompose` — dispatches the `analyst` agent directly for MECE validation (no longer chains through `cw-define` and `cw-split`).
+- `references/partner-voice.md` — stripped Clausewitz quotes and concept names; kept the partner-tone rules and anti-pattern list.
+- `.clawsewitz/SYSTEM.md`, `AGENTS.md`, README, website — rewritten to describe the three-layer (agents + workflows + skills) architecture.
 
 ## 1.0.0 — 2026-04-17
 

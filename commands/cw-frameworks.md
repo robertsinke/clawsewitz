@@ -13,7 +13,7 @@ Look up or browse the 70-framework Strategist Toolkit catalog shipped with this 
 
 - **empty** → print the full index with every framework name grouped by engagement move, as a scannable table.
 - **move name** (`frame`, `decompose`, `analyse`, `insights`, `narrative`, `recommend`, `plan`) → list all frameworks applicable to that move with one-line descriptions.
-- **framework name** (case-insensitive, fuzzy match) → invoke the `cw-framework-library` skill to return the full spec + worked example.
+- **framework name** (case-insensitive, fuzzy match) → invoke the `framework-library` skill to return the full spec + worked example.
 
 ## Where the catalog lives
 

@@ -56,15 +56,27 @@ test("bootstrap sync copies assets to agent dir", () => {
   }
 });
 
-test("only utility skills remain (no stage skills)", () => {
+test("skill library is present (9 skills: 7 capability wrappers + 2 utilities)", () => {
   const skillsDir = resolve(appRoot, "skills");
   const skills = readdirSync(skillsDir).filter((d) => {
     const skillPath = resolve(skillsDir, d, "SKILL.md");
     return existsSync(skillPath);
   });
-  assert.equal(skills.length, 2, `Expected 2 utility skills, found ${skills.length}: ${skills.join(", ")}`);
-  assert.ok(skills.includes("cw-framework-library"));
-  assert.ok(skills.includes("session-search"));
+  assert.equal(skills.length, 9, `Expected 9 skills, found ${skills.length}: ${skills.join(", ")}`);
+  const expected = [
+    "engagement-intake",
+    "mece-decomposition",
+    "evaluating-options",
+    "writing-briefs",
+    "implementation-planning",
+    "red-teaming-plans",
+    "strategic-research",
+    "framework-library",
+    "session-search",
+  ];
+  for (const name of expected) {
+    assert.ok(skills.includes(name), `Missing skill: ${name}`);
+  }
 });
 
 test("4 agent prompts are bundled", () => {
@@ -77,21 +89,17 @@ test("4 agent prompts are bundled", () => {
   }
 });
 
-test("8 workflow prompts are present", () => {
+test("7 workflow prompts are present", () => {
   const promptsDir = resolve(appRoot, "prompts");
   const prompts = readdirSync(promptsDir).filter((f) => f.endsWith(".md"));
-  assert.equal(prompts.length, 8, `Expected 8 prompts, found ${prompts.length}: ${prompts.join(", ")}`);
+  assert.equal(prompts.length, 7, `Expected 7 prompts, found ${prompts.length}: ${prompts.join(", ")}`);
 });
 
 test("prompt specs parse correctly", () => {
   const specs = readPromptSpecs(appRoot);
-  assert.ok(specs.length >= 8);
-  const clawsewitz = specs.find((s: { name: string }) => s.name === "clawsewitz");
-  assert.ok(clawsewitz);
-  assert.equal(clawsewitz.topLevelCli, false);
-  assert.equal(clawsewitz.section, "Strategy Workflows");
+  assert.ok(specs.length >= 7);
   const topLevel = specs.filter((s: { topLevelCli: boolean }) => s.topLevelCli);
-  assert.ok(topLevel.length >= 7, `Expected >= 7 top-level CLI workflows, found ${topLevel.length}`);
+  assert.ok(topLevel.length >= 6, `Expected >= 6 top-level CLI workflows, found ${topLevel.length}`);
 });
 
 test("validatePiInstallation detects key files", () => {

@@ -1,9 +1,9 @@
 ---
-name: cw-framework-library
+name: framework-library
 description: Lookup the 70-framework Strategist Toolkit catalog. Use when a stage skill (or the user) needs the full definition, worked example, or instructions for a named framework (SCQ, HTDQ, Minto Pyramid, Driver Tree, 5 Whys, SPADE, etc.). Returns the slide excerpt from the canonical toolkit source.
 ---
 
-# cw-framework-library
+# framework-library
 
 Reference lookup skill. Other stage skills call this when they need the full spec, worked example, or step-by-step for a framework they are about to apply.
 
