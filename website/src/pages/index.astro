@@ -66,7 +66,7 @@ import '../styles/global.css';
   </div>
 
   <!-- Terminal -->
-  <div class="w-full mt-10 flex flex-col rounded-xl overflow-hidden bg-terminal-bg shadow-[0_20px_60px_-15px_rgba(13,21,32,0.5)]">
+  <div class="w-full mt-10 flex flex-col rounded-xl overflow-hidden bg-terminal-bg ring-1 ring-prussian/10 shadow-[0_20px_60px_-15px_rgba(15,42,74,0.15)]">
     <div class="flex items-center py-3 px-4 gap-2 bg-terminal-bar">
       <div class="size-3 rounded-full bg-[#EE5555] shrink-0"></div>
       <div class="size-3 rounded-full bg-[#E5A825] shrink-0"></div>
@@ -74,7 +74,7 @@ import '../styles/global.css';
       <span class="text-xs text-text-secondary mx-auto">clawsewitz</span>
     </div>
     <div class="flex flex-col py-5 px-6 items-center">
-      <pre class="font-mono text-prussian-accent text-[5px] sm:text-[8px] md:text-[11px] leading-[1.15] select-none max-w-full whitespace-pre">
+      <pre class="font-mono text-prussian-accent text-[5px] sm:text-[8px] md:text-[11px] leading-[5px] sm:leading-[8px] md:leading-[11px] tracking-[-0.08em] select-none max-w-full whitespace-pre">
          ███                                                           ███   ███
          ███                                                                 ███
   █████  ███   ███████   ███      ███  ███████    █████  ███      ███  ███  █████  ███████
@@ -90,7 +90,7 @@ session   a7f3c1d2...
 
 system    8 cores · 16GB
 
-4 agents · 9 workflows</pre>
+4 agents · 8 workflows · 9 skills</pre>
           <div class="flex flex-col gap-0.5">
             <span class="font-mono font-bold text-prussian-accent">Agents</span>
             <span class="font-mono text-text-muted">researcher, analyst, writer, challenger</span>
@@ -98,13 +98,12 @@ system    8 cores · 16GB
         </div>
         <div class="flex flex-col gap-1 p-4 flex-1 min-w-0 overflow-x-auto">
           <span class="font-mono font-bold text-prussian-accent">Strategy Workflows</span>
-          <pre class="font-mono text-text-muted leading-relaxed whitespace-pre">/clawsewitz    full strategic engagement
-/decompose     MECE problem decomposition
-/brief         executive brief or memo
-/audit         red-team + premortem review
+          <pre class="font-mono text-text-muted leading-relaxed whitespace-pre">/decompose     MECE problem decomposition
 /evaluate      weighted criteria scoring
-/research      competitive intelligence
+/brief         executive brief or memo
 /plan          implementation roadmap
+/audit         red-team + premortem review
+/research      competitive intelligence
 /case          manage case workspaces
 /frameworks    browse 70 frameworks</pre>
         </div>
@@ -118,10 +117,6 @@ system    8 cores · 16GB
   <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">What you type &rarr; what happens</h2>
   <p class="text-center mt-2 text-[15px] text-text-secondary">Run from any terminal. Each command launches a focused workflow.</p>
   <div class="w-full mt-8 flex flex-col rounded-xl py-6 px-7 gap-4 bg-surface-card">
-    <div class="flex flex-col gap-0.5">
-      <code class="font-mono text-[13px] font-semibold text-prussian">clawsewitz "Acme — subscriber decline, 5%/mo, need turnaround"</code>
-      <span class="text-[13px] text-text-secondary">Full engagement orchestrated across four agents with structured deliverables at every move</span>
-    </div>
     <div class="flex flex-col gap-0.5">
       <code class="font-mono text-[13px] font-semibold text-prussian">clawsewitz decompose "Why are enterprise customers churning at 2x the SMB rate?"</code>
       <span class="text-[13px] text-text-secondary">Problem framing + MECE decomposition tree with automated validation</span>
@@ -144,10 +139,9 @@ system    8 cores · 16GB
 <!-- Workflows -->
 <section class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col items-center py-16">
   <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">Workflows</h2>
-  <p class="text-center mt-2 text-[15px] text-text-secondary">Nine workflows. Each produces a deliverable.</p>
+  <p class="text-center mt-2 text-[15px] text-text-secondary">Eight workflows. Each produces a deliverable. Runnable from the terminal or as slash commands inside the REPL.</p>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-8 w-full">
     {[
-      { cmd: '/clawsewitz', desc: 'Full strategic engagement — brief to implementation plan' },
       { cmd: '/decompose', desc: 'Break a problem into a validated MECE tree' },
       { cmd: '/brief', desc: 'Write an executive brief or recommendation memo' },
       { cmd: '/audit', desc: 'Red-team and premortem an existing plan' },
@@ -165,29 +159,26 @@ system    8 cores · 16GB
   </div>
 </section>
 
-<!-- The engagement -->
+<!-- Skills -->
 <section class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col items-center py-16">
-  <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">The engagement</h2>
-  <p class="text-center mt-2 text-[15px] text-text-secondary">Nine moves. Job-named artefacts. The orchestrator runs them inline by sequencing the four agents — no phase chain, no stage skills.</p>
+  <h2 class="text-center tracking-tight text-text-primary font-bold text-3xl">Skills</h2>
+  <p class="text-center mt-2 text-[15px] text-text-secondary">Triggered by what you ask for. The agent reaches for the right one — no fixed sequence.</p>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-8 w-full">
     {[
-      { step: 'Intake', desc: 'Seven clarifying questions. Partner read. Trinity stakeholder force-map.', output: 'intake.md' },
-      { step: 'Frame', desc: 'Frame the problem with SCQ, HTDQ, or Outcome.', output: 'frame.md' },
-      { step: 'Decompose', desc: 'MECE tree via Driver Tree, Bucketing, or Hypothesis Tree. Validated by the analyst.', output: 'decomposition.md' },
-      { step: 'Research', desc: 'Optional. Researcher agent gathers external evidence.', output: 'research-brief.md' },
-      { step: 'Analyse', desc: 'Run analyses with 70+ frameworks on each leg. "So what" required per analysis.', output: 'analysis.md' },
-      { step: 'Insights', desc: 'Mount takeaways on page archetypes: Canvas, 2×2, Journey Map. Fog acknowledged.', output: 'insights.md' },
-      { step: 'Narrative', desc: 'Writer stitches insights into a Minto Pyramid. Boldness test applied.', output: 'brief.md' },
-      { step: 'Recommend', desc: 'Named option using SPADE, Bezos, or Evaluation. Red-team adversarial review.', output: 'recommendation.md' },
-      { step: 'Plan', desc: 'Workstreams, milestones, friction register, reserves. Premortem from the challenger.', output: 'plan.md' },
-    ].map((move) => (
+      { name: 'engagement-intake', desc: 'Triage a fresh strategic brief. Seven clarifying questions, partner read, suggested next move.' },
+      { name: 'mece-decomposition', desc: 'Break a problem into a validated Mutually Exclusive, Collectively Exhaustive tree. Driver, bucket, or hypothesis.' },
+      { name: 'evaluating-options', desc: 'Score options against weighted criteria. Pros & Cons, Evaluation matrix, or SPADE — plus adversarial review.' },
+      { name: 'writing-briefs', desc: 'Raw findings → answer-first executive brief. Minto Pyramid, SCQA, or exec memo.' },
+      { name: 'implementation-planning', desc: 'Build a roadmap with workstreams, milestones, risk register, and a premortem failure narrative.' },
+      { name: 'red-teaming-plans', desc: 'Stress-test any plan or strategy document. Red Team adversary + Premortem extraction.' },
+      { name: 'strategic-research', desc: 'Structured competitive, market, or industry intel. Sourced and dated.' },
+      { name: 'cw-framework-library', desc: 'Look up any of 70 strategy frameworks — definition, worked example, instructions.' },
+      { name: 'session-search', desc: 'Recall prior engagements and reach back into past analysis.' },
+    ].map((skill) => (
       <div class="flex flex-col rounded-xl gap-2.5 justify-between bg-surface-card p-5">
         <div>
-          <code class="font-mono text-[13px] font-semibold text-prussian">{move.step}</code>
-          <p class="mt-1.5 text-[13px] leading-5 text-text-secondary">{move.desc}</p>
-        </div>
-        <div class="mt-auto">
-          <span class="font-mono text-xs text-text-muted">Produces: {move.output}</span>
+          <code class="font-mono text-[13px] font-semibold text-prussian">{skill.name}</code>
+          <p class="mt-1.5 text-[13px] leading-5 text-text-secondary">{skill.desc}</p>
         </div>
       </div>
     ))}

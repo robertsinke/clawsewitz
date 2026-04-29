@@ -6,23 +6,24 @@ export default {
     extend: {
       colors: {
         prussian: {
-          DEFAULT: '#1E3A5F',
-          dark: '#132846',
-          tint: '#E8EDF4',
-          accent: '#3B6EA5',
+          DEFAULT: '#1B3A6B',
+          dark: '#0F2A4A',
+          tint: '#E6ECF4',
+          accent: '#1B3A6B',
         },
         surface: {
-          DEFAULT: '#F4F6F9',
-          card: '#EAECF2',
+          DEFAULT: '#F2F4F8',
+          card: '#E6ECF4',
         },
         text: {
-          primary: '#132846',
-          secondary: '#5C6B82',
-          muted: '#8899B0',
+          primary: '#0F2A4A',
+          secondary: '#4A6788',
+          muted: '#7A8AA3',
         },
         terminal: {
-          bg: '#0D1520',
-          bar: '#111D2B',
+          bg: '#FFFFFF',
+          bar: '#E6ECF4',
+          border: '#D8E0EC',
         },
       },
       fontFamily: {
