@@ -10,7 +10,7 @@ Standalone implementation planning — takes a recommendation or decision and bu
 ## Before anything else
 
 1. **Load the partner voice.** Read `${CLAUDE_PLUGIN_ROOT}/references/partner-voice.md`. Adopt it.
-2. **Load the analyst discipline.** Read `${CLAUDE_PLUGIN_ROOT}/references/analyst-discipline.md`. Plans that ignore friction are plans that fail.
+2. **Load the analyst discipline.** Read `${CLAUDE_PLUGIN_ROOT}/references/analyst-discipline.md`. Plans that ignore what can go wrong are plans that fail.
 
 ## Argument
 
@@ -59,7 +59,7 @@ Default to **Execution Plan** unless the context clearly calls for another. Stat
    - **Leading indicator** — the signal that this risk is materialising
    - **Cheapest mitigation** — the smallest action that reduces it
 
-6. **Name the reserves.** What is held back for unknowns: uncommitted budget, unassigned capacity, decisions deferred (optionality), timeline slack. A plan committing 100% of capacity breaks on first contact with reality.
+6. **Name the slack.** What is held back for unknowns: uncommitted budget, unassigned capacity, decisions deferred (optionality), timeline buffer. A plan committing 100% of capacity breaks on first surprise.
 
 ## Stress-test
 
@@ -77,7 +77,7 @@ Return:
 2. **Workstream table** (workstream / lead / target metric / phase activities)
 3. **Milestone timeline** (milestone / date / deliverable)
 4. **Risk register** (risk / severity / leading indicator / mitigation)
-5. **Reserves** (what is held back and why)
+5. **Slack** (what is held back and why)
 6. **Premortem** (failure narrative + extracted risks + recommended additions)
 7. **First action** — what happens on day 1, and who does it
 
@@ -88,7 +88,7 @@ This command is standalone. Output goes directly to the user. If the user wants 
 ## Anti-patterns to refuse
 
 - **Plans without owners** — every workstream has a lead; every first action has a name. "The team will..." is not a plan.
-- **Plans without friction** — if the plan does not name what will go wrong, it has not been thought through. The risk register is required, not optional.
-- **100% commitment** — a plan with no reserves breaks on contact. Name the slack.
+- **Plans without risk** — if the plan does not name what will go wrong, it has not been thought through. The risk register is required, not optional.
+- **100% commitment** — a plan with no slack breaks on first surprise. Name the buffer.
 - **Milestones without deliverables** — "Phase 2 complete" is not a milestone. "V1 shipped to beta users" is.
 - **Ignoring the premortem** — if the challenger surfaces a material risk, the plan must respond to it. Do not append and ignore.

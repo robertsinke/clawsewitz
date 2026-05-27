@@ -9,6 +9,8 @@ import { ensureClawsewitzHome, getClawsewitzAgentDir, getClawsewitzHome, getDefa
 import { launchPiChat } from "./pi/launch.js";
 import { normalizeClawsewitzSettings, normalizeThinkingLevel } from "./pi/settings.js";
 import { validatePiInstallation } from "./pi/runtime.js";
+import { checkForUpdatesInBackground } from "./system/update-check.js";
+import { runUpdate } from "./system/update.js";
 import { readPromptSpecs, topLevelCommandNames, cliCommandSections, formatCliWorkflowUsage } from "../metadata/commands.mjs";
 
 function loadPackageVersion(appRoot: string): { version?: string } {
@@ -131,6 +133,13 @@ export async function main(): Promise<void> {
     runDoctor({ settingsPath: clawsewitzSettingsPath, appRoot, sessionDir, workingDir });
     return;
   }
+
+  if (command === "update") {
+    process.exitCode = await runUpdate(clawsewitzVersion);
+    return;
+  }
+
+  checkForUpdatesInBackground(clawsewitzVersion);
 
   const workflowNames = new Set(
     readPromptSpecs(appRoot).filter((s) => s.topLevelCli).map((s) => s.name)

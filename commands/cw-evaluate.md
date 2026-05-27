@@ -47,12 +47,7 @@ State the choice and reason. If the user has a preference, use it — but flag i
 
 1. **Score each option** against each criterion (1-5 scale). Multiply by weight. Show the math.
 2. **Produce the ranked result.** Name the winner and the margin.
-3. **Ends-Ways-Means litmus.** Before finalising the recommendation, verify:
-   - **End** — the outcome, measurable
-   - **Way** — the approach
-   - **Means** — the resources it will consume
-   If any of the three is vague, the recommendation is not ready. Rewrite.
-4. **Name the recommendation** — one option, one reason, the risks it carries, and the next decision required.
+3. **Name the recommendation** — one option, one reason, the risks it carries, the resources it consumes, and the next decision required. If the outcome, approach, or resource commitment is vague, the recommendation is not ready — rewrite.
 
 ## Step 5: Stress-test
 
@@ -68,7 +63,7 @@ The challenger attacks the recommendation — not the framework. Append the revi
 Return:
 1. **Decision classification** (Bezos + complexity)
 2. **Scored matrix** (table with options x criteria x weights x scores)
-3. **Recommendation** (option + reason + Ends-Ways-Means + risks + next action)
+3. **Recommendation** (option + reason + outcome + resource commitment + risks + next action)
 4. **Challenger review** (adversarial attack on the recommendation)
 
 ## No case workspace

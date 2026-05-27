@@ -43,11 +43,12 @@ export const cliCommandSections = [
       { usage: "clawsewitz help", description: "Show CLI help." },
       { usage: "clawsewitz setup", description: "Run first-time setup." },
       { usage: "clawsewitz doctor", description: "Diagnose config and runtime." },
+      { usage: "clawsewitz update", description: "Update to the latest version from npm." },
     ],
   },
 ];
 
-export const topLevelCommandNames = ["chat", "doctor", "help", "setup"];
+export const topLevelCommandNames = ["chat", "doctor", "help", "setup", "update"];
 
 export function formatCliWorkflowUsage(command) {
   return `clawsewitz ${command.name}${command.args ? ` ${command.args}` : ""}`;

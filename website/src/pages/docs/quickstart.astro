@@ -6,39 +6,23 @@ import DocsLayout from '../../layouts/docs.astro';
 <h1 class="text-3xl font-bold tracking-tight mb-2">Quick Start</h1>
 <p class="text-text-secondary mb-8">Run your first strategic engagement in under a minute.</p>
 
-<h2 class="text-xl font-bold mt-10 mb-3">Start an engagement</h2>
-<p class="text-text-secondary mb-4">Open any terminal and run:</p>
+<h2 class="text-xl font-bold mt-10 mb-3">Start working</h2>
+<p class="text-text-secondary mb-4">Reach for a workflow directly when you know what you need:</p>
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
-  <code class="font-mono text-[13px] text-text-primary">clawsewitz "Acme Design — subscriber decline, 5%/mo for 3 months, need turnaround"</code>
+  <code class="font-mono text-[13px] text-text-primary">clawsewitz decompose "Why is subscriber retention dropping 5%/mo?"</code>
 </div>
-<p class="text-text-secondary mb-4">The agent creates a case workspace, sets partner posture, and starts triage — seven intake questions before any analysis. Or launch the interactive REPL with just <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">clawsewitz</code> and use slash commands inside.</p>
+<p class="text-text-secondary mb-4">Or launch the interactive REPL with just <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">clawsewitz</code> and describe the situation — the agent matches your intent to the right skill and reaches for it.</p>
 
-<h2 class="text-xl font-bold mt-10 mb-3" id="define">What happens next</h2>
-<p class="text-text-secondary mb-4">The orchestrator works through nine moves, writing one job-named artefact per move. Moves without signal are skipped — the orchestrator says so out loud when it does.</p>
+<h2 class="text-xl font-bold mt-10 mb-3" id="define">How it composes</h2>
+<p class="text-text-secondary mb-4">Three layers, composed as the situation demands. No fixed sequence.</p>
 
-<div class="flex flex-col gap-3 mt-4 mb-8">
-  {[
-    { step: 'Intake', file: 'intake.md', desc: 'Seven clarifying questions. Partner read. Trinity stakeholder force-map.' },
-    { step: 'Frame', file: 'frame.md', desc: 'Frame the problem using SCQ, HTDQ, or Outcome.' },
-    { step: 'Decompose', file: 'decomposition.md', desc: 'MECE decomposition. Validated by the analyst agent. Schwerpunkt named.' },
-    { step: 'Research', file: 'research-brief.md', desc: 'Optional. Researcher agent gathers external evidence.' },
-    { step: 'Analyse', file: 'analysis.md', desc: 'Run analyses on each leg of the tree using 70+ frameworks.' },
-    { step: 'Insights', file: 'insights.md', desc: 'Mount so-whats on page archetypes (Canvas, 2×2, Journey Map). Fog acknowledged.' },
-    { step: 'Narrative', file: 'brief.md', desc: 'Writer agent structures Minto Pyramid, SCQA, or StoryBrand. Boldness test.' },
-    { step: 'Recommend', file: 'recommendation.md', desc: 'Named option with Ends-Ways-Means. Red-team adversarial review.' },
-    { step: 'Plan', file: 'plan.md', desc: 'Implementation plan with friction register, reserves, and premortem.' },
-  ].map((s) => (
-    <div class="flex gap-4 items-start rounded-lg bg-surface-card p-4">
-      <div class="shrink-0 w-24">
-        <span class="font-mono text-[13px] font-semibold text-prussian">{s.step}</span>
-      </div>
-      <div>
-        <p class="text-sm text-text-primary">{s.desc}</p>
-        <p class="text-xs text-text-muted mt-1">Produces <code class="font-mono bg-prussian-tint px-1 py-0.5 rounded">{s.file}</code></p>
-      </div>
-    </div>
-  ))}
-</div>
+<ul class="list-disc pl-5 text-text-secondary flex flex-col gap-2 mb-6">
+  <li><strong class="text-text-primary">Agents</strong> — four dispatchable workers (researcher, analyst, writer, challenger). You hand them a focused task, they hand back a structured output.</li>
+  <li><strong class="text-text-primary">Workflows</strong> — eight top-level commands, each a full procedure runnable standalone. The source of truth for how each job is done.</li>
+  <li><strong class="text-text-primary">Skills</strong> — discoverable capabilities the agent reaches for when your intent matches. Thin wrappers over the workflows with natural-language trigger descriptions.</li>
+</ul>
+
+<p class="text-text-secondary mb-4">In practice: say "help me decide between build and buy for the data platform" and the agent triggers <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">evaluating-options</code>, which runs the <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">/evaluate</code> workflow, which dispatches the <code class="font-mono text-[13px] bg-prussian-tint px-1.5 py-0.5 rounded">challenger</code> agent for adversarial review. You can reach any layer directly.</p>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="commands">Workflows</h2>
 <p class="text-text-secondary mb-4">Run from the terminal or as slash commands inside the REPL.</p>
@@ -52,7 +36,6 @@ import DocsLayout from '../../layouts/docs.astro';
       </tr>
     </thead>
     <tbody class="text-text-secondary">
-      <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">clawsewitz "brief"</code></td><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/clawsewitz</code></td><td class="py-2">Full strategic engagement</td></tr>
       <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">clawsewitz decompose</code></td><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/decompose</code></td><td class="py-2">MECE problem decomposition</td></tr>
       <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">clawsewitz brief</code></td><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/brief</code></td><td class="py-2">Executive brief or memo</td></tr>
       <tr class="border-b border-prussian/5"><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">clawsewitz audit</code></td><td class="py-2 pr-4"><code class="font-mono text-[13px] text-prussian">/audit</code></td><td class="py-2">Red-team + premortem</td></tr>
@@ -73,10 +56,10 @@ import DocsLayout from '../../layouts/docs.astro';
 <div class="relative rounded-lg bg-prussian-tint px-5 py-4 mb-4 overflow-x-auto">
   <code class="font-mono text-[13px] text-text-primary">/frameworks define</code>
 </div>
-<p class="text-text-secondary mb-4">Each framework comes with a definition, worked example, and step-by-step instructions. The orchestrator picks the right framework for each move based on engagement signals.</p>
+<p class="text-text-secondary mb-4">Each framework comes with a definition, worked example, and step-by-step instructions. Workflows reach for the right framework based on problem signals.</p>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="subagents">Agents</h2>
-<p class="text-text-secondary mb-4">Four specialized agents. The orchestrator dispatches them inline as the engagement unfolds:</p>
+<p class="text-text-secondary mb-4">Four specialized agents. Workflows dispatch them when the task calls for their specialty:</p>
 <ul class="list-disc pl-5 text-text-secondary flex flex-col gap-2 mb-4">
   <li><strong class="text-text-primary">Researcher</strong> — hunts for evidence across the web, benchmarks, and competitive landscape</li>
   <li><strong class="text-text-primary">Analyst</strong> — decomposes problems, applies frameworks, validates MECE integrity</li>
@@ -85,7 +68,7 @@ import DocsLayout from '../../layouts/docs.astro';
 </ul>
 
 <h2 class="text-xl font-bold mt-10 mb-3" id="hooks">Enforcement</h2>
-<p class="text-text-secondary mb-4">Built-in guardrails reinforce discipline throughout the engagement:</p>
+<p class="text-text-secondary mb-4">Built-in guardrails reinforce discipline:</p>
 <ul class="list-disc pl-5 text-text-secondary flex flex-col gap-2 mb-4">
   <li><strong class="text-text-primary">Auto-commit</strong> — optionally commits every case artefact to git</li>
   <li><strong class="text-text-primary">Analyst amplifier</strong> — highlights analyst verdicts that flag problems</li>

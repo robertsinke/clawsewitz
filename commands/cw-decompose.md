@@ -42,9 +42,9 @@ Slug = hyphenated summary + today's date.
 
 3. **Build the tree** (2–4 levels). Every leaf gets a one-line definition. No fuzzy branches. If you need a 5th level, you're building the analysis — stop and defer.
 
-4. **Name the Schwerpunkt** — the single branch that, if moved, cascades the rest. Test: remove it; is this still the same problem? If yes, pick again.
+4. **Name the highest-leverage branch** — the single branch that, if moved, cascades the rest. Optional but useful for the caller; it tells the next step which leg to go deepest on. If you can't pick one, say so.
 
-5. **Write `decomposition/<slug>/decomposition.md`** with the frame, the tree, and the Schwerpunkt.
+5. **Write `decomposition/<slug>/decomposition.md`** with the frame, the tree, and the highest-leverage branch if named.
 
 6. **Dispatch the `analyst` agent in MECE validation mode** with the decomposition file. The analyst walks each pair for overlap, names the universe for gaps, checks dimension consistency, and returns a verdict (Pass / Pass-with-notes / Fail) with specific named issues. Append the verdict to `decomposition.md`.
 
@@ -55,13 +55,13 @@ Slug = hyphenated summary + today's date.
 Return:
 - The problem frame (one line, with framework)
 - The tree (indented outline)
-- The Schwerpunkt (one line + why it cascades)
+- The highest-leverage branch if named
 - The MECE verdict (pass / pass-with-notes / fail, with named issues)
 - Path to the written artefact
 
 ## Scope boundary
 
-This command stops at a validated decomposition. It does **not** continue to analysis or recommendation. To run the full engagement, use `/clawsewitz`.
+This command stops at a validated decomposition. It does **not** continue to analysis, recommendation, or planning. Those are separate workflows/skills the agent can reach for next.
 
 ## Anti-patterns to refuse
 

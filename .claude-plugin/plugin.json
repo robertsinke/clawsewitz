@@ -1,6 +1,6 @@
 {
   "name": "clawsewitz",
-  "description": "Clawsewitz — the open source AI strategy agent. 4 specialized agents (researcher, analyst, challenger, writer), 9 workflows, and 70 frameworks with MECE enforcement.",
+  "description": "Clawsewitz — the open source AI strategy agent. 4 agents, 8 workflows, 9 skills, and 70 frameworks with MECE enforcement. Skill-first architecture — the agent reaches for the right capability when your intent matches.",
   "version": "1.0.0",
   "author": {
     "name": "Robert Sinke"

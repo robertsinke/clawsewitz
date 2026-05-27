@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, lstatSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, relative, resolve } from "node:path";
 
 import { getBootstrapStatePath } from "../config/paths.js";
@@ -125,7 +125,16 @@ function syncManagedFiles(
 		const scopedKey = `${scope}:${key}`;
 		const previous = state.files[scopedKey] ?? state.files[key];
 
-		mkdirSync(dirname(targetPath), { recursive: true });
+		const targetDir = dirname(targetPath);
+		try {
+			const lstat = lstatSync(targetDir);
+			if (lstat.isSymbolicLink() && !existsSync(targetDir)) {
+				rmSync(targetDir);
+			}
+		} catch {
+			// doesn't exist yet — mkdirSync handles it
+		}
+		mkdirSync(targetDir, { recursive: true });
 
 		if (!existsSync(targetPath)) {
 			writeFileSync(targetPath, sourceText, "utf8");

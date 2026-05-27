@@ -15,53 +15,43 @@ Clawsewitz ships four bundled strategy subagents:
 
 They are defined in `.clawsewitz/agents/` and invoked via the Pi `subagent` tool.
 
+## Architecture
+
+Three layers, composed as the situation demands — no master orchestrator that walks a fixed sequence.
+
+- **Agents** (above) — dispatchable workers.
+- **Workflows** (`prompts/` for Pi, `commands/` for Claude Code) — top-level CLI commands / slash commands, each a full procedure runnable standalone. The source of truth for each capability's procedure.
+- **Skills** (`skills/`) — discoverable capabilities the agent reaches for when user intent matches. Thin wrappers over the workflow prompts, with descriptions tuned for natural-language triggers.
+
 ## What belongs here
 
 Keep this file focused on cross-agent repo conventions:
 
-- case workspace locations and file naming
+- workspace conventions
 - deliverable quality standards
 - delegation rules between the lead agent and subagents
 
 Do **not** restate per-agent prompt text here unless there is a repo-wide constraint that applies to all agents.
 
-## Case workspaces
+## Workspaces
 
-Each strategic engagement creates a case workspace. Artefacts are named for the job they do — not for a phase number. There is no rigid chain: the orchestrator writes whichever artefacts the engagement's flow produces, in order of creation.
+Most workflows are standalone — they return output to the user. Two exceptions:
 
-Typical artefacts:
+- `cw-decompose` writes a lightweight artefact to `decomposition/<slug>/decomposition.md` (project-local if in a git repo, else `~/.clawsewitz/decompositions/`).
+- `cw-case` manages longer-lived case workspaces at `docs/clawsewitz/cases/<slug>/` (project-local) or `~/.clawsewitz/cases/<slug>/` (user-global), for engagements where the agent persists state across multiple skill invocations.
 
-- `intake.md` — triage and clarifying questions, partner-read, Trinity force-map
-- `frame.md` — problem framing (SCQ / HTDQ / Outcome)
-- `decomposition.md` — MECE issue tree + analyst MECE verdict + Schwerpunkt
-- `research-brief.md` — researcher output (if external evidence was needed)
-- `analysis.md` — per-branch analyses with "so whats"
-- `insights.md` — governing statements on page archetypes with fog acknowledgements
-- `brief.md` — structured narrative (Minto Pyramid by default)
-- `recommendation.md` — named option + reason + Ends-Ways-Means + next decision
-- `plan.md` — implementation plan with friction register, reserves, premortem
-
-Case workspace locations:
-- **Project-local** (preferred when in a git repo): `docs/clawsewitz/cases/<slug>/`
-- **User-global** (fallback): `~/.clawsewitz/cases/<slug>/`
-
-Every case has a `CASE.md` manifest with the verbatim brief, a framework-choices log, and final status on close.
-
-## File naming
-
-Case slugs are derived from the engagement brief (lowercase, hyphens, no filler words, 3-5 words — e.g. `acme-subscriber-decline`). Artefact filenames are the job names above.
+Slugs are derived from the topic (lowercase, hyphens, no filler words, 3-5 words — e.g. `acme-subscriber-decline`).
 
 ## MECE enforcement
 
-- Every decomposition must pass structural and semantic MECE checks before advancing.
+- Every decomposition produced by `cw-decompose` or any skill should pass structural and semantic MECE checks.
 - The `mece_structural_check` tool handles structural validation (dimensions, duplicates, depth).
-- The `analyst` agent in MECE validation mode handles semantic validation (is this truly ME? truly CE?).
-- Both must pass. A structural pass does not imply semantic quality.
+- The `analyst` agent in MECE validation mode handles semantic validation.
+- A structural pass does not imply semantic quality.
 
 ## Delegation rules
 
-- The lead agent (`/clawsewitz` orchestrator) plans, delegates, synthesizes, and delivers.
 - Use subagents when the work is meaningfully decomposable; do not spawn them for trivial work.
 - Prefer file-based handoffs over dumping large intermediate results back into parent context.
-- The `challenger` agent should always run last — it stress-tests the deliverable, not the intermediate work.
-- For critical recommendations, require at least one adversarial pass (Red Team or Premortem) after the writer produces the deliverable.
+- The `challenger` agent should run after the deliverable, not during — it stress-tests, it does not produce.
+- For critical recommendations, require at least one adversarial pass (Red Team or Premortem) before shipping.
